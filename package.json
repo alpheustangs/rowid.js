@@ -1,0 +1,15 @@
+{
+    "private": true,
+    "scripts": {
+        "format": "biome check . --apply",
+        "build": "cd ./packages/rowid && tsc && tsc-alias",
+        "test": "cd ./packages/__test__ && pnpm run test",
+        "": ""
+    },
+    "devDependencies": {
+        "@biomejs/biome": "^1.7.3",
+        "@types/node": "^20.12.10",
+        "tsc-alias": "^1.8.8",
+        "typescript": "^5.4.2"
+    }
+}

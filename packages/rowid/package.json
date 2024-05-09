@@ -1,0 +1,31 @@
+{
+    "name": "rowid",
+    "version": "0.1.0",
+    "description": "A time based unique ID solution for TypeScript / JavaScript and Node",
+    "keywords": [
+        "RowID",
+        "time",
+        "unique",
+        "id",
+        "browser",
+        "Node",
+        "frontend",
+        "backend",
+        "ts",
+        "TypeScript",
+        "js",
+        "JavaScript"
+    ],
+    "homepage": "https://github.com/alpheustangs/rowid",
+    "bugs": "https://github.com/alpheustangs/rowid/issues",
+    "license": "MIT",
+    "author": "Alpheus Tang",
+    "files": ["dist"],
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/alpheustangs/rowid.git",
+        "directory": "packages/rowid"
+    }
+}
