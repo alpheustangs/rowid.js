@@ -9,7 +9,7 @@
     "devDependencies": {
         "@biomejs/biome": "^1.7.3",
         "@types/node": "^20.12.11",
-        "tsc-alias": "^1.8.9",
+        "tsc-alias": "^1.8.10",
         "typescript": "^5.4.2"
     }
 }
