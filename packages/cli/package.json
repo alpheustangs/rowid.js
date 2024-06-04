@@ -1,9 +1,10 @@
 {
-    "name": "rowid",
-    "version": "0.2.0",
-    "description": "A time based unique ID solution",
+    "name": "rowid-cli",
+    "version": "0.1.0",
+    "description": "CLI for RowID",
     "keywords": [
         "RowID",
+        "CLI",
         "time",
         "unique",
         "id",
@@ -20,12 +21,17 @@
     "bugs": "https://github.com/alpheustangs/rowid/issues",
     "license": "MIT",
     "author": "Alpheus Tang",
-    "files": ["dist"],
-    "main": "./dist/index.js",
-    "types": "./dist/index.d.ts",
+    "files": ["bin", "dist"],
+    "bin": {
+        "rowid": "./bin/rowid"
+    },
     "repository": {
         "type": "git",
         "url": "https://github.com/alpheustangs/rowid.git",
-        "directory": "packages/rowid"
+        "directory": "packages/cli"
+    },
+    "dependencies": {
+        "commander": "^12.1.0",
+        "rowid": "workspace:~"
     }
 }

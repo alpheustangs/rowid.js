@@ -1,6 +1,6 @@
 # RowID
 
-A time based unique ID solution for TypeScript / JavaScript and Node.
+RowID, a time based unique ID solution.
 
 ## Install
 
@@ -67,7 +67,7 @@ This function generates a ID based on input.
 ```typescript
 import { generate } from "rowid";
 
-generate(new Date(), 22);
+generate(new Date().getTime(), 22);
 ```
 
 #### `verify`

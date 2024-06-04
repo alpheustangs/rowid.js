@@ -1,7 +1,7 @@
 const timeDigits: number = 10;
 const randomDigits: number = 22;
 
-const alphabet: string = "123456789ABCDEFGHJKMNPQRSTVWXYZ";
-const alphabetLength: number = alphabet.length;
+const charList: string = "2346789ABCDEFGHJKMNPQRTVWXYZ";
+const charListLength: number = charList.length;
 
-export { timeDigits, randomDigits, alphabet, alphabetLength };
+export { timeDigits, randomDigits, charList, charListLength };

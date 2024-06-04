@@ -17,6 +17,13 @@ describe("RowID basic tests", (): void => {
 
     it("should be a string", async (): Promise<void> => {
         const id: string = RowID();
-        expect(true).toBe(typeof id === "string");
+        expect(typeof id).toBe("string");
+        expect(id.length).toBe(32);
+    });
+
+    it("should be a string with specified length", async (): Promise<void> => {
+        const id: string = RowID(16 - 10);
+        expect(typeof id).toBe("string");
+        expect(id.length).toBe(16);
     });
 });

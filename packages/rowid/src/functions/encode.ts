@@ -1,4 +1,4 @@
-import { alphabet, alphabetLength, timeDigits } from "#/configs/common";
+import { charList, charListLength, timeDigits } from "#/configs/common";
 
 const encodeFn = (timestamp: number): string => {
     // remaining
@@ -8,8 +8,8 @@ const encodeFn = (timestamp: number): string => {
     let encoded: string = "";
 
     for (let i: number = 0; i < timeDigits; i++) {
-        encoded = alphabet[remaining % alphabetLength] + encoded;
-        remaining = Math.floor(remaining / alphabetLength);
+        encoded = charList[remaining % charListLength] + encoded;
+        remaining = Math.floor(remaining / charListLength);
     }
 
     // result

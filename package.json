@@ -2,13 +2,19 @@
     "private": true,
     "scripts": {
         "format": "biome check . --apply",
-        "build": "cd ./packages/rowid && tsc && tsc-alias",
-        "test": "cd ./packages/__test__ && pnpm run test",
+        "build": "npm-run-all --sequential build:id build:cli",
+        "build:id": "cd ./packages/rowid && tsc && tsc-alias",
+        "build:cli": "cd ./packages/cli && tsc && tsc-alias",
+        "test": "npm-run-all --sequential test:id test:cli",
+        "test:id": "cd ./tests/rowid && pnpm run test",
+        "test:cli": "cd ./tests/cli && pnpm run test",
+        "gen": "cd ./tests/gen && pnpm run gen",
         "": ""
     },
     "devDependencies": {
         "@biomejs/biome": "^1.7.3",
         "@types/node": "^20.14.0",
+        "npm-run-all": "^4.1.5",
         "tsc-alias": "^1.8.10",
         "typescript": "^5.4.2"
     }

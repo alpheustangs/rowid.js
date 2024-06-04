@@ -1,0 +1,15 @@
+{
+    "private": true,
+    "scripts": {
+        "gen": "ts-node src/index.ts"
+    },
+    "dependencies": {
+        "rowid": "workspace:^"
+    },
+    "devDependencies": {
+        "@swc/core": "^1.5.24",
+        "@swc/helpers": "^0.5.11",
+        "regenerator-runtime": "^0.14.1",
+        "ts-node": "^10.9.2"
+    }
+}

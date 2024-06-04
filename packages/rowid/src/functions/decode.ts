@@ -1,4 +1,4 @@
-import { alphabet, alphabetLength, timeDigits } from "#/configs/common";
+import { charList, charListLength, timeDigits } from "#/configs/common";
 
 // decode
 const decode = (encoded: string): Date => {
@@ -13,7 +13,7 @@ const decode = (encoded: string): Date => {
     }
 
     // check regex
-    if (!encoded.match(new RegExp(`^[${alphabet}]+$`))) {
+    if (!encoded.match(new RegExp(`^[${charList}]+$`))) {
         throw new TypeError("Input is not a valid RowID");
     }
 
@@ -25,7 +25,7 @@ const decode = (encoded: string): Date => {
 
     // decode
     for (let i: number = 0; i < timeDigits; i++) {
-        timestamp = timestamp * alphabetLength + alphabet.indexOf(_encoded[i]);
+        timestamp = timestamp * charListLength + charList.indexOf(_encoded[i]);
     }
 
     // result

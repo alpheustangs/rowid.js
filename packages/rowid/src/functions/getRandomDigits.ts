@@ -1,4 +1,4 @@
-import { alphabet, alphabetLength } from "#/configs/common";
+import { charList, charListLength } from "#/configs/common";
 
 const getRandomByte = (): number => {
     // use window.crypto when available
@@ -33,7 +33,7 @@ const randomDigitsFn = (count: number): string => {
 
     // implementation
     for (let i: number = 0; i < count; i++) {
-        randomDigits += alphabet[getRandomByte() % alphabetLength];
+        randomDigits += charList[getRandomByte() % charListLength];
     }
 
     // result
