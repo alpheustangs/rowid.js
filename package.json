@@ -1,7 +1,7 @@
 {
     "private": true,
     "scripts": {
-        "format": "biome check . --apply",
+        "format": "biome check --write .",
         "build": "npm-run-all --sequential build:id build:cli",
         "build:id": "cd ./packages/rowid && tsc && tsc-alias",
         "build:cli": "cd ./packages/cli && tsc && tsc-alias",
