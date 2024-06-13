@@ -1,4 +1,23 @@
-import { charList, charListLength } from "#/configs/common";
+type GetRandomDigitsProps = {
+    charList: string;
+    count: number;
+};
+
+type UnsafedGetRandomDigitsProps = GetRandomDigitsProps;
+
+type randomDigitsProcessProps = GetRandomDigitsProps;
+
+const randomDigitsValidate = (count: number): void => {
+    // check type
+    if (typeof count !== "number") {
+        throw new TypeError("Input is not a number");
+    }
+
+    // check range
+    if (count < 0) {
+        throw new RangeError("Input should be equal or greater than to 0");
+    }
+};
 
 const getRandomByte = (): number => {
     // use window.crypto when available
@@ -27,32 +46,32 @@ const getRandomByte = (): number => {
     return Math.floor(Math.random() * 256);
 };
 
-const randomDigitsFn = (count: number): string => {
+const randomDigitsProcess = (props: randomDigitsProcessProps): string => {
     // declarations
     let randomDigits: string = "";
 
     // implementation
-    for (let i: number = 0; i < count; i++) {
-        randomDigits += charList[getRandomByte() % charListLength];
+    for (let i: number = 0; i < props.count; i++) {
+        randomDigits += props.charList[getRandomByte() % props.charList.length];
     }
 
     // result
     return randomDigits;
 };
 
-const getRandomDigits = (count: number): string => {
-    // check type
-    if (typeof count !== "number") {
-        throw new TypeError("Input is not a number");
-    }
-
-    // check range
-    if (count < 0) {
-        throw new RangeError("Input should be equal or greater than to 0");
-    }
-
-    // result
-    return randomDigitsFn(count);
+const unsafedGetRandomDigits = (props: UnsafedGetRandomDigitsProps): string => {
+    return randomDigitsProcess({
+        count: props.count,
+        charList: props.charList,
+    });
 };
 
-export { getRandomDigits, randomDigitsFn };
+const getRandomDigits = (props: GetRandomDigitsProps): string => {
+    randomDigitsValidate(props.count);
+    return randomDigitsProcess({
+        count: props.count,
+        charList: props.charList,
+    });
+};
+
+export { getRandomDigits, unsafedGetRandomDigits };

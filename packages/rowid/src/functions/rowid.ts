@@ -1,21 +1,33 @@
-import { randomDigits } from "#/configs/common";
+import { unsafedEncode } from "#/functions/encode";
+import { unsafedGetRandomDigits } from "#/functions/getRandomDigits";
 
-import { encodeFn } from "#/functions/encode";
-import { randomDigitsFn } from "#/functions/getRandomDigits";
+type RowIDProps = {
+    charList: string;
+    digits: number;
+};
 
-const RowID = (digits: number = randomDigits): string => {
+const RowID = (props: RowIDProps): string => {
     // type check
-    if (typeof digits !== "number") {
+    if (typeof props.digits !== "number") {
         throw new TypeError("Input is not a number");
     }
 
     // range check
-    if (digits < 0) {
+    if (props.digits < 0) {
         throw new RangeError("Input should be equal or greater than to 0");
     }
 
     // result
-    return encodeFn(new Date().getTime()) + randomDigitsFn(digits);
+    return (
+        unsafedEncode({
+            charList: props.charList,
+            timestamp: new Date().getTime(),
+        }) +
+        unsafedGetRandomDigits({
+            charList: props.charList,
+            count: props.digits,
+        })
+    );
 };
 
 export { RowID };

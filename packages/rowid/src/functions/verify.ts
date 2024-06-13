@@ -2,11 +2,19 @@ import type { Verify } from "#/@types/verify";
 
 import { decode } from "#/functions/decode";
 
+type VerifyProps = {
+    charList: string;
+    encoded: string;
+};
+
 // verify
-const verify = (id: string): Verify => {
+const verify = (props: VerifyProps): Verify => {
     try {
         // decode
-        const result: Date = decode(id);
+        const result: Date = decode({
+            charList: props.charList,
+            encoded: props.encoded,
+        });
 
         let natural: boolean = true;
 
