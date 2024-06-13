@@ -1,8 +1,8 @@
 import type { Generate } from "#/@types/generate";
 import type { Verify } from "#/@types/verify";
 import type {
-    RowIDWithConfigPayload,
     RowIDWithConfigProps,
+    RowIDWithConfigResult,
 } from "#/functions/rowidWithConfig";
 
 import { charList, randomDigits } from "#/configs/common";
@@ -61,7 +61,7 @@ const getRandomDigits = (count: number): string => {
 };
 
 export default RowID;
-export type { Generate, Verify, RowIDWithConfigProps, RowIDWithConfigPayload };
+export type { Generate, Verify, RowIDWithConfigProps, RowIDWithConfigResult };
 export {
     RowID,
     RowIDWithConfig,

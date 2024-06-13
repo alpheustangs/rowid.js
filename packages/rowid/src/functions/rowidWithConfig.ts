@@ -69,7 +69,7 @@ const RowIDWithConfig = (props: RowIDWithConfigProps) => {
     };
 };
 
-type RowIDWithConfigPayload = ReturnType<typeof RowIDWithConfig>;
+type RowIDWithConfigResult = ReturnType<typeof RowIDWithConfig>;
 
-export type { RowIDWithConfigProps, RowIDWithConfigPayload };
+export type { RowIDWithConfigProps, RowIDWithConfigResult };
 export { RowIDWithConfig };

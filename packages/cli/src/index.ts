@@ -1,4 +1,4 @@
-import type { RowIDWithConfigPayload } from "rowid";
+import type { RowIDWithConfigResult } from "rowid";
 
 import type { Config } from "#/@types/config";
 import type { PackageJson } from "#/@types/packageJson";
@@ -24,7 +24,7 @@ import { readPackageJson } from "#/functions/readPackageJson";
             generate,
             verify,
             getRandomDigits,
-        }: RowIDWithConfigPayload = RowIDWithConfig({
+        }: RowIDWithConfigResult = RowIDWithConfig({
             charList: config.charList ?? charList,
         });
 

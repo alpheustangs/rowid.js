@@ -1,4 +1,4 @@
-import type { RowIDWithConfigPayload } from "rowid";
+import type { RowIDWithConfigResult } from "rowid";
 
 import { RowIDWithConfig } from "rowid";
 import { describe, expect, it } from "vitest";
@@ -46,7 +46,7 @@ describe("RowIDWithConfig tests", (): void => {
         expect(error instanceof RangeError).toBe(true);
     });
 
-    const { RowID }: RowIDWithConfigPayload = RowIDWithConfig({
+    const { RowID }: RowIDWithConfigResult = RowIDWithConfig({
         charList: "0123456789ACDEFGHJKMNPQRTVWXY",
     });
 
