@@ -5,7 +5,8 @@ import * as fsp from "node:fs/promises";
 import * as path from "node:path";
 
 const readPackageJson = async (): Promise<PackageJson | null> => {
-    const _path: string = path.resolve(__dirname, "..", "..", "package.json");
+    // root/dist/index.js -> root/package.json
+    const _path: string = path.resolve(__dirname, "..", "package.json");
 
     if (!fs.existsSync(_path)) return null;
 

@@ -1,22 +1,32 @@
+import type { RowIDWithConfigPayload } from "rowid";
+
+import type { Config } from "#/@types/config";
 import type { PackageJson } from "#/@types/packageJson";
 
 import { Command } from "commander";
-import {
-    RowID,
-    decode,
-    encode,
-    generate,
-    getRandomDigits,
-    verify,
-} from "rowid";
+import { RowIDWithConfig } from "rowid";
 
+import { charList } from "#/configs/common";
+import { readConfig } from "#/functions/readConfig";
 import { readPackageJson } from "#/functions/readPackageJson";
 
 (async (): Promise<void> => {
     try {
         // declarations
         const program: Command = new Command();
+        const config: Config = await readConfig();
         const pkj: PackageJson | null = await readPackageJson();
+
+        const {
+            RowID,
+            encode,
+            decode,
+            generate,
+            verify,
+            getRandomDigits,
+        }: RowIDWithConfigPayload = RowIDWithConfig({
+            charList: config.charList ?? charList,
+        });
 
         // RowID
         program

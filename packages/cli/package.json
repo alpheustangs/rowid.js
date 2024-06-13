@@ -30,7 +30,7 @@
         "url": "https://github.com/alpheustangs/rowid.git",
         "directory": "packages/cli"
     },
-    "dependencies": {
+    "devDependencies": {
         "commander": "^12.1.0",
         "rowid": "workspace:~"
     }
