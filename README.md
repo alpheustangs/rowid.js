@@ -95,6 +95,24 @@ console.log(typeof result === "string"); // true
 console.log(result.length === 6); // true
 ```
 
+#### `RowIDWithConfig`
+
+This function allows you to customize how RowID works.
+
+```typescript
+import type { RowIDWithConfigResult } from "rowid";
+
+import { RowIDWithConfig } from "rowid";
+
+const { RowID }: RowIDWithConfigResult = RowIDWithConfig({
+    charList: "0123456789ABCDEFGHJKMNPQRSTVWXYZ",
+});
+
+const id: string = RowID(6);
+
+console.log(id.length === (10 + 6)); // true
+```
+
 ## License
 
 This project is MIT licensed, you can find the license file [here](./LICENSE).
