@@ -1,4 +1,4 @@
-import type { Verify } from "#/@types/verify";
+import type { VerifyResult } from "#/@types/verify";
 
 import { decode } from "#/functions/decode";
 
@@ -8,7 +8,7 @@ type VerifyProps = {
 };
 
 // verify
-const verify = (props: VerifyProps): Verify => {
+const verify = (props: VerifyProps): VerifyResult => {
     try {
         // decode
         const result: Date = decode({
@@ -28,14 +28,14 @@ const verify = (props: VerifyProps): Verify => {
 
         // result
         return {
-            status: "success",
+            success: true,
             result,
             natural,
         };
     } catch (e: unknown) {
         return {
-            status: "error",
-            message: e instanceof Error ? e.message : String(e),
+            success: false,
+            error: e instanceof Error ? e : new Error(String(e)),
         };
     }
 };

@@ -1,12 +1,12 @@
-type Verify =
+type VerifyResult =
     | {
-          status: "success";
+          success: true;
           result: Date;
           natural: boolean;
       }
     | {
-          status: "error";
-          message: string;
+          success: false;
+          error: Error;
       };
 
-export type { Verify };
+export type { VerifyResult };

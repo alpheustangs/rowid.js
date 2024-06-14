@@ -1,4 +1,4 @@
-import type { Generate } from "#/@types/generate";
+import type { GenerateResult } from "#/@types/generate";
 
 import { encode } from "#/functions/encode";
 import { getRandomDigits } from "#/functions/getRandomDigits";
@@ -10,7 +10,7 @@ type GenerateProps = {
 };
 
 // generate
-const generate = (props: GenerateProps): Generate => {
+const generate = (props: GenerateProps): GenerateResult => {
     try {
         // encode
         const encoded: string = encode({
@@ -24,13 +24,13 @@ const generate = (props: GenerateProps): Generate => {
 
         // result
         return {
-            status: "success",
+            success: true,
             result: encoded + extraDigits,
         };
     } catch (e: unknown) {
         return {
-            status: "error",
-            message: e instanceof Error ? e.message : String(e),
+            success: false,
+            error: e instanceof Error ? e : new Error(String(e)),
         };
     }
 };

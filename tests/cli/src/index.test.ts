@@ -59,8 +59,8 @@ describe("RowID CLI tests", (): void => {
             "generate",
             "2099-01-01T00:00:00.000Z",
         ]);
-        const json: { status: string; result: string } = JSON.parse(stdout);
-        expect(json.status).toBe("success");
+        const json: { success: boolean; result: string } = JSON.parse(stdout);
+        expect(json.success).toBe(true);
         expect(json.result.length).toBe(10 + 22);
     });
 
@@ -70,8 +70,8 @@ describe("RowID CLI tests", (): void => {
             "2099-01-01T00:00:00.000Z",
             "6",
         ]);
-        const json: { status: string; result: string } = JSON.parse(stdout);
-        expect(json.status).toBe("success");
+        const json: { success: boolean; result: string } = JSON.parse(stdout);
+        expect(json.success).toBe(true);
         expect(json.result.length).toBe(10 + 6);
     });
 
@@ -82,9 +82,9 @@ describe("RowID CLI tests", (): void => {
             "9999-01-01T00:00:00.000Z",
         ]);
         const { stdout } = await execa("rowid", ["verify", rowid]);
-        const json: { status: string; result: string; natural: boolean } =
+        const json: { success: boolean; result: string; natural: boolean } =
             JSON.parse(stdout);
-        expect(json.status).toBe("success");
+        expect(json.success).toBe(true);
         expect(new Date(json.result).toISOString()).toBe(
             "9999-01-01T00:00:00.000Z",
         );

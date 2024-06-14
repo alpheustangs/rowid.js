@@ -1,4 +1,4 @@
-import type { Generate, Verify } from "rowid";
+import type { GenerateResult, VerifyResult } from "rowid";
 
 import { generate, verify } from "rowid";
 import { describe, expect, it } from "vitest";
@@ -6,9 +6,9 @@ import { describe, expect, it } from "vitest";
 describe("RowID advance function tests", (): void => {
     const time: Date = new Date("9999-12-30T00:00:00.000Z");
     const timeNumber: number = time.getTime();
-    const generated: Generate = generate(timeNumber, 22);
+    const generated: GenerateResult = generate(timeNumber, 22);
 
-    if (generated.status !== "success") {
+    if (!generated.success) {
         throw Error("it is not a success generated");
     }
 
@@ -18,9 +18,9 @@ describe("RowID advance function tests", (): void => {
     });
 
     it("should be able to be verified", async (): Promise<void> => {
-        const verified: Verify = verify(generated.result);
+        const verified: VerifyResult = verify(generated.result);
 
-        if (verified.status !== "success") {
+        if (!verified.success) {
             throw Error("it is not a success verified");
         }
 

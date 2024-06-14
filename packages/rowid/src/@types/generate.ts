@@ -1,11 +1,11 @@
-type Generate =
+type GenerateResult =
     | {
-          status: "success";
+          success: true;
           result: string;
       }
     | {
-          status: "error";
-          message: string;
+          success: false;
+          error: Error;
       };
 
-export type { Generate };
+export type { GenerateResult };

@@ -1,5 +1,5 @@
-import type { Generate } from "#/@types/generate";
-import type { Verify } from "#/@types/verify";
+import type { GenerateResult } from "#/@types/generate";
+import type { VerifyResult } from "#/@types/verify";
 import type {
     RowIDWithConfigProps,
     RowIDWithConfigResult,
@@ -38,7 +38,7 @@ const decode = (encoded: string): Date => {
 const generate = (
     timestamp: number,
     digits: number = randomDigits,
-): Generate => {
+): GenerateResult => {
     return _generate({
         charList,
         timestamp,
@@ -46,7 +46,7 @@ const generate = (
     });
 };
 
-const verify = (encoded: string): Verify => {
+const verify = (encoded: string): VerifyResult => {
     return _verify({
         charList,
         encoded,
@@ -61,7 +61,12 @@ const getRandomDigits = (count: number): string => {
 };
 
 export default RowID;
-export type { Generate, Verify, RowIDWithConfigProps, RowIDWithConfigResult };
+export type {
+    GenerateResult,
+    VerifyResult,
+    RowIDWithConfigProps,
+    RowIDWithConfigResult,
+};
 export {
     RowID,
     RowIDWithConfig,

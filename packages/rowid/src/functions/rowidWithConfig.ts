@@ -1,7 +1,10 @@
-import type { Generate } from "#/@types/generate";
-import type { Verify } from "#/@types/verify";
+import type { GenerateResult } from "#/@types/generate";
+import type { VerifyResult } from "#/@types/verify";
 
-import { randomDigits } from "#/configs/common";
+import {
+    charList as _charList,
+    randomDigits as _randomDigits,
+} from "#/configs/common";
 import { decode } from "#/functions/decode";
 import { encode } from "#/functions/encode";
 import { generate } from "#/functions/generate";
@@ -15,55 +18,80 @@ type RowIDWithConfigProps = {
      * it must be longer or equal to 28
      * @default "0123456789ABCDEFGHJKMNPQRSTVWXYZ"
      */
-    charList: string;
+    charList?: string;
+    /**
+     * The default number of random digits in the RowID,
+     * it's recommended to be longer or equal to 6
+     * @default 22
+     */
+    randomDigits?: number;
 };
 
 const RowIDWithConfig = (props: RowIDWithConfigProps) => {
-    if (!props || typeof props !== "object") {
-        throw new TypeError("Input is not an object");
+    if (props) {
+        if (typeof props !== "object") {
+            throw new TypeError("Input is not an object");
+        }
+
+        if (props.charList) {
+            if (typeof props.charList !== "string") {
+                throw new TypeError("charList is not a string");
+            }
+
+            if (props.charList.length < 28) {
+                throw new RangeError("charList must be longer or equal to 28");
+            }
+        }
+
+        if (props.randomDigits) {
+            if (typeof props.randomDigits !== "number") {
+                throw new TypeError("randomDigits is not a number");
+            }
+
+            if (props.randomDigits < 0) {
+                throw new RangeError(
+                    "randomDigits should be equal or greater than 0",
+                );
+            }
+        }
     }
 
-    if (!props.charList || typeof props.charList !== "string") {
-        throw new TypeError("charList is not a string");
-    }
-
-    if (props.charList.length < 28) {
-        throw new RangeError("charList must be longer or equal to 28");
-    }
+    const charList: string = props.charList ?? _charList;
+    const randomDigits: number = props.randomDigits ?? _randomDigits;
 
     return {
         RowID: (digits: number = randomDigits): string =>
             RowID({
-                charList: props.charList,
+                charList,
                 digits,
             }),
         encode: (timestamp: number): string =>
             encode({
-                charList: props.charList,
+                charList,
                 timestamp,
             }),
         decode: (encoded: string): Date =>
             decode({
-                charList: props.charList,
+                charList,
                 encoded,
             }),
         generate: (
             timestamp: number,
             digits: number = randomDigits,
-        ): Generate =>
+        ): GenerateResult =>
             generate({
-                charList: props.charList,
+                charList,
                 timestamp,
                 digits,
             }),
-        verify: (encoded: string): Verify =>
+        verify: (encoded: string): VerifyResult =>
             verify({
-                charList: props.charList,
+                charList,
                 encoded,
             }),
         getRandomDigits: (count: number): string =>
             getRandomDigits({
-                charList: props.charList,
+                charList,
                 count,
             }),
     };
