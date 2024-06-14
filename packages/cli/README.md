@@ -7,10 +7,10 @@ CLI for RowID
 For NPM:
 
 ```bash
-npx i -g rowid-cli
+npm i -g rowid-cli
 ```
 
-For Pnpm:
+For PNPM:
 
 ```bash
 pnpm i -g rowid-cli

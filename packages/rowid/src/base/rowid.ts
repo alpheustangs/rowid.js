@@ -13,8 +13,8 @@ import { RowID as _RowID } from "#/functions/rowid";
 import { verify as _verify } from "#/functions/verify";
 
 /**
- * This function generates a 32 chars unique ID
- * that is almost impossible to collide.
+ * This function generates a 32-character unique ID
+ * that is almost impossible to duplicate.
  * Or you can specify the number of randomness,
  * a larger number will generate a longer ID,
  * with less chance of collision.
@@ -26,7 +26,7 @@ const RowID = (randomnessLength: number = _randomnessLength): string => {
     });
 };
 
-/** This function encode the timestamp into a ID without randomness. */
+/** This function encodes the timestamp into a ID without randomness. */
 const encode = (timestamp: number): string => {
     return _encode({
         charList,
@@ -34,7 +34,7 @@ const encode = (timestamp: number): string => {
     });
 };
 
-/** This function decode the ID into a Date. */
+/** This function decodes the ID into a Date. */
 const decode = (encoded: string): Date => {
     return _decode({
         charList,
@@ -54,7 +54,7 @@ const generate = (
     });
 };
 
-/** This function verifys if the ID is valid and natural. */
+/** This function verifies if the ID is valid and natural. */
 const verify = (encoded: string): VerifyResult => {
     return _verify({
         charList,

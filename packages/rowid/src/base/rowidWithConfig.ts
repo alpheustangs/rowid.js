@@ -67,7 +67,7 @@ const RowIDWithConfig = (props: RowIDWithConfigProps) => {
     return {
         /**
          * This function generates a unique ID
-         * that is almost impossible to collide.
+         * that is almost impossible to duplicate.
          * Or you can specify the number of randomness,
          * a larger number will generate a longer ID,
          * with less chance of collision.
@@ -77,13 +77,13 @@ const RowIDWithConfig = (props: RowIDWithConfigProps) => {
                 charList,
                 randomnessLength,
             }),
-        /** This function encode the timestamp into a ID without randomness. */
+        /** This function encodes the timestamp into a ID without randomness. */
         encode: (timestamp: number): string =>
             encode({
                 charList,
                 timestamp,
             }),
-        /** This function decode the ID into a Date. */
+        /** This function decodes the ID into a Date. */
         decode: (encoded: string): Date =>
             decode({
                 charList,
@@ -99,7 +99,7 @@ const RowIDWithConfig = (props: RowIDWithConfigProps) => {
                 timestamp,
                 randomnessLength,
             }),
-        /** This function verifys if the ID is valid and natural. */
+        /** This function verifies if the ID is valid and natural. */
         verify: (encoded: string): VerifyResult =>
             verify({
                 charList,

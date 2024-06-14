@@ -4,8 +4,16 @@ A time based unique ID solution for TypeScript / JavaScript and Node.
 
 ## Install
 
+For NPM:
+
 ```bash
 npm i rowid
+```
+
+For PNPM:
+
+```bash
+pnpm i rowid
 ```
 
 ## License

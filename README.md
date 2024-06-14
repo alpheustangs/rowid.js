@@ -4,8 +4,16 @@ RowID, a time based unique ID solution.
 
 ## Install
 
+For NPM:
+
 ```bash
 npm i rowid
+```
+
+For PNPM:
+
+```bash
+pnpm i rowid
 ```
 
 ## Usage
@@ -14,7 +22,7 @@ Usage of RowID:
 
 #### `RowID`
 
-This function generates a 32 chars unique ID that is almost impossible to collide.
+This function generates a 32-character unique ID that is almost impossible to duplicate.
 
 ```typescript
 import RowID from "rowid";
@@ -36,7 +44,7 @@ console.log(id.length === (10 + 6)); // true
 
 #### `encode`
 
-This function encode the timestamp into a ID without randomness.
+This function encodes the timestamp into a ID without randomness.
 
 ```typescript
 import { encode } from "rowid";
@@ -48,7 +56,7 @@ console.log(typeof result === "string"); // true
 
 #### `decode`
 
-This function decode the ID into a Date.
+This function decodes the ID into a Date.
 
 ```typescript
 import { RowID, decode } from "rowid";
@@ -72,7 +80,7 @@ generate(new Date().getTime(), 22);
 
 #### `verify`
 
-This function verifys if the ID is valid and natural.
+This function verifies if the ID is valid and natural.
 
 ```typescript
 import { RowID, verify } from "rowid";
