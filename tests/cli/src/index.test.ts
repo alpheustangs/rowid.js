@@ -21,23 +21,29 @@ describe("RowID CLI tests", (): void => {
     });
 
     it("should generate a RowID with specified number using param -n", async (): Promise<void> => {
-        const { stdout } = await execa("rowid", ["-n", "6"]);
+        const { stdout } = await execa("rowid", ["-r", "6"]);
         expect(typeof stdout).toBe("string");
         expect(stdout.length).toBe(10 + 6);
     });
 
     it("should generate a RowID with specified number using param --number", async (): Promise<void> => {
-        const { stdout } = await execa("rowid", ["-n", "12"]);
+        const { stdout } = await execa("rowid", ["-r", "12"]);
         expect(typeof stdout).toBe("string");
         expect(stdout.length).toBe(10 + 12);
     });
 
     // rowid encode
-    it("should encode to a RowID", async (): Promise<void> => {
+    it("should encode a date to a RowID", async (): Promise<void> => {
         const { stdout } = await execa("rowid", [
             "encode",
             "2099-01-01T00:00:00.000Z",
         ]);
+        expect(typeof stdout).toBe("string");
+        expect(stdout.length).toBe(10);
+    });
+
+    it("should encode a number to a RowID", async (): Promise<void> => {
+        const { stdout } = await execa("rowid", ["encode", "1718351445"]);
         expect(typeof stdout).toBe("string");
         expect(stdout.length).toBe(10);
     });
@@ -53,8 +59,8 @@ describe("RowID CLI tests", (): void => {
         expect(new Date(stdout).toISOString()).toBe("2099-01-01T00:00:00.000Z");
     });
 
-    // rowide generate
-    it("should generate a RowID with specified Date", async (): Promise<void> => {
+    // rowid generate
+    it("should generate a RowID with specified date", async (): Promise<void> => {
         const { stdout } = await execa("rowid", [
             "generate",
             "2099-01-01T00:00:00.000Z",
@@ -64,7 +70,14 @@ describe("RowID CLI tests", (): void => {
         expect(json.result.length).toBe(10 + 22);
     });
 
-    it("should generate a RowID with specified Date and number", async (): Promise<void> => {
+    it("should generate a RowID with specified number", async (): Promise<void> => {
+        const { stdout } = await execa("rowid", ["generate", "1718351445"]);
+        const json: { success: boolean; result: string } = JSON.parse(stdout);
+        expect(json.success).toBe(true);
+        expect(json.result.length).toBe(10 + 22);
+    });
+
+    it("should generate a RowID with specified date and randomness", async (): Promise<void> => {
         const { stdout } = await execa("rowid", [
             "generate",
             "2099-01-01T00:00:00.000Z",
@@ -92,12 +105,17 @@ describe("RowID CLI tests", (): void => {
     });
 
     // rowid random
-    it("should generate 1 random digit", async (): Promise<void> => {
+    it("should generate 1 randomness with alphabet input", async (): Promise<void> => {
+        const { stdout } = await execa("rowid", ["random", "ABC"]);
+        expect(stdout.length).toBe(1);
+    });
+
+    it("should generate 1 randomness", async (): Promise<void> => {
         const { stdout } = await execa("rowid", ["random", "1"]);
         expect(stdout.length).toBe(1);
     });
 
-    it("should generate 10 random digits", async (): Promise<void> => {
+    it("should generate 10 randomness", async (): Promise<void> => {
         const { stdout } = await execa("rowid", ["random", "10"]);
         expect(stdout.length).toBe(10);
     });

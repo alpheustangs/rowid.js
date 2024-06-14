@@ -24,7 +24,7 @@ const id: string = RowID();
 console.log(typeof id === "string"); // true
 ```
 
-Or you can specify the number of random digits, a larger number will generate a longer ID, with less chance of collision.
+Or you can specify the number of randomness, a larger number will generate a longer ID, with less chance of collision.
 
 ```typescript
 import RowID from "rowid";
@@ -36,7 +36,7 @@ console.log(id.length === (10 + 6)); // true
 
 #### `encode`
 
-This function encode the timestamp into a ID without random digits.
+This function encode the timestamp into a ID without randomness.
 
 ```typescript
 import { encode } from "rowid";
@@ -82,14 +82,14 @@ const id: string = RowID();
 verify(id);
 ```
 
-#### `getRandomDigits`
+#### `getRandomness`
 
-This function generates a number of random digits.
+This function generates randomness.
 
 ```typescript
-import { getRandomDigits } from "rowid";
+import { getRandomness } from "rowid";
 
-const result: string = getRandomDigits(6);
+const result: string = getRandomness(6);
 
 console.log(typeof result === "string"); // true
 console.log(result.length === 6); // true

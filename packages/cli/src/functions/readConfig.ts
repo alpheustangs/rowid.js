@@ -5,7 +5,7 @@ import * as fsp from "node:fs/promises";
 import * as os from "node:os";
 import * as path from "node:path";
 
-import { charList } from "#/configs/common";
+import { charList, randomnessLength } from "#/configs/common";
 
 const readConfig = async (): Promise<Config> => {
     const _path: string = path.resolve(os.homedir(), ".rowid.json");
@@ -13,6 +13,7 @@ const readConfig = async (): Promise<Config> => {
     if (!fs.existsSync(_path)) {
         const _config: Config = {
             charList,
+            randomnessLength,
         };
 
         await fsp.writeFile(_path, JSON.stringify(_config, null, 4));

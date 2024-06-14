@@ -1,4 +1,4 @@
-import { timeDigits } from "#/configs/common";
+import { timestampLength } from "#/configs/common";
 
 type EncodeProps = {
     charList: string;
@@ -34,7 +34,7 @@ const encodeProcess = (props: EncodeProcessProps): string => {
     let remaining: number = props.timestamp;
 
     // encode
-    for (let i: number = 0; i < timeDigits; i++) {
+    for (let i: number = 0; i < timestampLength; i++) {
         encoded = charList[remaining % charListLength] + encoded;
         remaining = Math.floor(remaining / charListLength);
     }

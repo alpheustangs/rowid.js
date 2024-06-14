@@ -1,12 +1,12 @@
 import type { GenerateResult } from "#/@types/generate";
 
 import { encode } from "#/functions/encode";
-import { getRandomDigits } from "#/functions/getRandomDigits";
+import { getRandomness } from "#/functions/getRandomness";
 
 type GenerateProps = {
     charList: string;
     timestamp: number;
-    digits: number;
+    randomnessLength: number;
 };
 
 // generate
@@ -17,15 +17,15 @@ const generate = (props: GenerateProps): GenerateResult => {
             charList: props.charList,
             timestamp: props.timestamp,
         });
-        const extraDigits: string = getRandomDigits({
+        const randomness: string = getRandomness({
             charList: props.charList,
-            count: props.digits,
+            randomnessLength: props.randomnessLength,
         });
 
         // result
         return {
             success: true,
-            result: encoded + extraDigits,
+            result: encoded + randomness,
         };
     } catch (e: unknown) {
         return {

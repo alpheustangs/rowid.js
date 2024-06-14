@@ -1,7 +1,7 @@
 import { RowID } from "rowid";
 
 // should be higher than 6 to avoid duplicates
-const randomDigits: number = 32 - 10;
+const randomness: number = 32 - 10;
 
 const dynamicLog = (message: string): void => {
     process.stdout.clearLine(0);
@@ -17,7 +17,7 @@ const dynamicLog = (message: string): void => {
         const loopStart = Date.now();
 
         while (Date.now() - loopStart < 100) {
-            const id: string = RowID(randomDigits);
+            const id: string = RowID(randomness);
             result.push(id);
             // console.log(id);
         }

@@ -1,19 +1,19 @@
 import { unsafedEncode } from "#/functions/encode";
-import { unsafedGetRandomDigits } from "#/functions/getRandomDigits";
+import { unsafedGetRandomness } from "#/functions/getRandomness";
 
 type RowIDProps = {
     charList: string;
-    digits: number;
+    randomnessLength: number;
 };
 
 const RowID = (props: RowIDProps): string => {
     // type check
-    if (typeof props.digits !== "number") {
+    if (typeof props.randomnessLength !== "number") {
         throw new TypeError("Input is not a number");
     }
 
     // range check
-    if (props.digits < 0) {
+    if (props.randomnessLength < 0) {
         throw new RangeError("Input should be equal or greater than to 0");
     }
 
@@ -23,9 +23,9 @@ const RowID = (props: RowIDProps): string => {
             charList: props.charList,
             timestamp: new Date().getTime(),
         }) +
-        unsafedGetRandomDigits({
+        unsafedGetRandomness({
             charList: props.charList,
-            count: props.digits,
+            randomnessLength: props.randomnessLength,
         })
     );
 };

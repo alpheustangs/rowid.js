@@ -1,13 +1,13 @@
-import { getRandomDigits } from "rowid";
+import { getRandomness } from "rowid";
 import { describe, expect, it } from "vitest";
 
-describe("RowID getRandomDigits function tests", (): void => {
+describe("RowID getRandomness function tests", (): void => {
     it("should be get with error", async (): Promise<void> => {
         let error: unknown;
 
         try {
             // @ts-expect-error
-            getRandomDigits("1234asdg3515v");
+            getRandomness("1234asdg3515v");
         } catch (e: unknown) {
             error = e;
         }
@@ -19,7 +19,7 @@ describe("RowID getRandomDigits function tests", (): void => {
         let error: unknown;
 
         try {
-            getRandomDigits(-123);
+            getRandomness(-123);
         } catch (e: unknown) {
             error = e;
         }
@@ -27,8 +27,8 @@ describe("RowID getRandomDigits function tests", (): void => {
         expect(error instanceof RangeError).toBe(true);
     });
 
-    it("should be able to get random digits", async (): Promise<void> => {
-        const digits: string = getRandomDigits(10);
-        expect(digits.length).toBe(10);
+    it("should be able to get randomness", async (): Promise<void> => {
+        const randomness: string = getRandomness(10);
+        expect(randomness.length).toBe(10);
     });
 });

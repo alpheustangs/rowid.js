@@ -1,4 +1,4 @@
-import { timeDigits } from "#/configs/common";
+import { timestampLength } from "#/configs/common";
 
 type DecodeProps = {
     charList: string;
@@ -16,7 +16,7 @@ const decodeValidate = (props: DecodeValidateProps): void => {
     }
 
     // check length
-    if (props.encoded.length < timeDigits) {
+    if (props.encoded.length < timestampLength) {
         throw new TypeError("Input is not long enough to be decoded");
     }
 
@@ -30,13 +30,15 @@ const decodeProcess = (props: DecodeProcessProps): Date => {
     // split and upper case
     const charList: string = props.charList;
     const charListLength: number = charList.length;
-    const encoded: string = props.encoded.slice(0, timeDigits).toUpperCase();
+    const encoded: string = props.encoded
+        .slice(0, timestampLength)
+        .toUpperCase();
 
     // timestamp
     let timestamp: number = 0;
 
     // decode
-    for (let i: number = 0; i < timeDigits; i++) {
+    for (let i: number = 0; i < timestampLength; i++) {
         timestamp = timestamp * charListLength + charList.indexOf(encoded[i]);
     }
 

@@ -1,13 +1,13 @@
-type GetRandomDigitsProps = {
+type GetRandomnessProps = {
     charList: string;
-    count: number;
+    randomnessLength: number;
 };
 
-type UnsafedGetRandomDigitsProps = GetRandomDigitsProps;
+type UnsafedGetRandomnessProps = GetRandomnessProps;
 
-type randomDigitsProcessProps = GetRandomDigitsProps;
+type randomnessProcessProps = GetRandomnessProps;
 
-const randomDigitsValidate = (count: number): void => {
+const randomnessValidate = (count: number): void => {
     // check type
     if (typeof count !== "number") {
         throw new TypeError("Input is not a number");
@@ -46,32 +46,32 @@ const getRandomByte = (): number => {
     return Math.floor(Math.random() * 256);
 };
 
-const randomDigitsProcess = (props: randomDigitsProcessProps): string => {
+const randomnessProcess = (props: randomnessProcessProps): string => {
     // declarations
-    let randomDigits: string = "";
+    let randomness: string = "";
 
     // implementation
-    for (let i: number = 0; i < props.count; i++) {
-        randomDigits += props.charList[getRandomByte() % props.charList.length];
+    for (let i: number = 0; i < props.randomnessLength; i++) {
+        randomness += props.charList[getRandomByte() % props.charList.length];
     }
 
     // result
-    return randomDigits;
+    return randomness;
 };
 
-const unsafedGetRandomDigits = (props: UnsafedGetRandomDigitsProps): string => {
-    return randomDigitsProcess({
-        count: props.count,
+const unsafedGetRandomness = (props: UnsafedGetRandomnessProps): string => {
+    return randomnessProcess({
+        randomnessLength: props.randomnessLength,
         charList: props.charList,
     });
 };
 
-const getRandomDigits = (props: GetRandomDigitsProps): string => {
-    randomDigitsValidate(props.count);
-    return randomDigitsProcess({
-        count: props.count,
+const getRandomness = (props: GetRandomnessProps): string => {
+    randomnessValidate(props.randomnessLength);
+    return randomnessProcess({
+        randomnessLength: props.randomnessLength,
         charList: props.charList,
     });
 };
 
-export { getRandomDigits, unsafedGetRandomDigits };
+export { getRandomness, unsafedGetRandomness };

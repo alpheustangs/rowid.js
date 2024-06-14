@@ -2,13 +2,13 @@ import type { GenerateResult } from "#/@types/generate";
 import type { VerifyResult } from "#/@types/verify";
 
 import {
+    randomnessLength as __randomnessLength,
     charList as _charList,
-    randomDigits as _randomDigits,
 } from "#/configs/common";
 import { decode } from "#/functions/decode";
 import { encode } from "#/functions/encode";
 import { generate } from "#/functions/generate";
-import { getRandomDigits } from "#/functions/getRandomDigits";
+import { getRandomness } from "#/functions/getRandomness";
 import { RowID } from "#/functions/rowid";
 import { verify } from "#/functions/verify";
 
@@ -20,11 +20,11 @@ type RowIDWithConfigProps = {
      */
     charList?: string;
     /**
-     * The default number of random digits in the RowID,
+     * The default length of randomness in the RowID,
      * it's recommended to be longer or equal to 6
      * @default 22
      */
-    randomDigits?: number;
+    randomnessLength?: number;
 };
 
 const RowIDWithConfig = (props: RowIDWithConfigProps) => {
@@ -43,27 +43,28 @@ const RowIDWithConfig = (props: RowIDWithConfigProps) => {
             }
         }
 
-        if (props.randomDigits) {
-            if (typeof props.randomDigits !== "number") {
-                throw new TypeError("randomDigits is not a number");
+        if (props.randomnessLength) {
+            if (typeof props.randomnessLength !== "number") {
+                throw new TypeError("randomnessLength is not a number");
             }
 
-            if (props.randomDigits < 0) {
+            if (props.randomnessLength < 0) {
                 throw new RangeError(
-                    "randomDigits should be equal or greater than 0",
+                    "randomnessLength should be equal or greater than 0",
                 );
             }
         }
     }
 
     const charList: string = props.charList ?? _charList;
-    const randomDigits: number = props.randomDigits ?? _randomDigits;
+    const _randomnessLength: number =
+        props.randomnessLength ?? __randomnessLength;
 
     return {
-        RowID: (digits: number = randomDigits): string =>
+        RowID: (randomnessLength: number = _randomnessLength): string =>
             RowID({
                 charList,
-                digits,
+                randomnessLength,
             }),
         encode: (timestamp: number): string =>
             encode({
@@ -77,22 +78,22 @@ const RowIDWithConfig = (props: RowIDWithConfigProps) => {
             }),
         generate: (
             timestamp: number,
-            digits: number = randomDigits,
+            randomnessLength: number = _randomnessLength,
         ): GenerateResult =>
             generate({
                 charList,
                 timestamp,
-                digits,
+                randomnessLength,
             }),
         verify: (encoded: string): VerifyResult =>
             verify({
                 charList,
                 encoded,
             }),
-        getRandomDigits: (count: number): string =>
-            getRandomDigits({
+        getRandomness: (randomnessLength: number): string =>
+            getRandomness({
                 charList,
-                count,
+                randomnessLength,
             }),
     };
 };

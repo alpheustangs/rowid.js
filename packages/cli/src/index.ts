@@ -6,7 +6,8 @@ import type { PackageJson } from "#/@types/packageJson";
 import { Command } from "commander";
 import { RowIDWithConfig } from "rowid";
 
-import { charList } from "#/configs/common";
+import { charList, randomnessLength } from "#/configs/common";
+import { isNumber } from "#/functions/isNumber";
 import { readConfig } from "#/functions/readConfig";
 import { readPackageJson } from "#/functions/readPackageJson";
 
@@ -23,9 +24,13 @@ import { readPackageJson } from "#/functions/readPackageJson";
             decode,
             generate,
             verify,
-            getRandomDigits,
+            getRandomness,
         }: RowIDWithConfigResult = RowIDWithConfig({
             charList: config.charList ?? charList,
+            randomnessLength:
+                (config.randomnessLength && isNumber(config.randomnessLength)
+                    ? Number(config.randomnessLength)
+                    : randomnessLength) ?? randomnessLength,
         });
 
         // RowID
@@ -38,13 +43,19 @@ import { readPackageJson } from "#/functions/readPackageJson";
                 "get the version of RowID CLI",
             )
             .option(
-                "-n, --number <number>",
-                "specify the number of random digits",
+                "-r, --randomness <number>",
+                "specify the number of randomness",
             )
-            .action(async (args: { number: string }): Promise<void> => {
+            .action(async (args: { randomness: string }): Promise<void> => {
                 try {
                     console.log(
-                        RowID(args.number ? Number(args.number) : void 0),
+                        RowID(
+                            args.randomness
+                                ? isNumber(args.randomness)
+                                    ? Number(args.randomness)
+                                    : void 0
+                                : void 0,
+                        ),
                     );
                 } catch (e: unknown) {
                     console.error(e);
@@ -58,7 +69,9 @@ import { readPackageJson } from "#/functions/readPackageJson";
             .argument("<date>", "the date to encode")
             .action(async (date: string): Promise<void> => {
                 try {
-                    const _date: number = new Date(date).getTime();
+                    const _date: number = new Date(
+                        isNumber(date) ? Number(date) : date,
+                    ).getTime();
                     console.log(encode(_date));
                 } catch (e: unknown) {
                     console.error(e);
@@ -70,9 +83,9 @@ import { readPackageJson } from "#/functions/readPackageJson";
             .command("decode")
             .description("decode a RowID to date")
             .argument("<rowid>", "the RowID to decode")
-            .action(async (rowid: string): Promise<void> => {
+            .action(async (encoded: string): Promise<void> => {
                 try {
-                    console.log(decode(rowid));
+                    console.log(decode(encoded));
                 } catch (e: unknown) {
                     console.error(e);
                 }
@@ -83,7 +96,7 @@ import { readPackageJson } from "#/functions/readPackageJson";
             .command("generate")
             .description("generate a RowID")
             .argument("<date>", "the date to generate")
-            .argument("[number]", "the number of random digits")
+            .argument("[number]", "the number of randomness")
             .action(
                 async (
                     date: string,
@@ -93,8 +106,14 @@ import { readPackageJson } from "#/functions/readPackageJson";
                         console.log(
                             JSON.stringify(
                                 generate(
-                                    new Date(date).getTime(),
-                                    number ? Number(number) : void 0,
+                                    new Date(
+                                        isNumber(date) ? Number(date) : date,
+                                    ).getTime(),
+                                    number
+                                        ? isNumber(number)
+                                            ? Number(number)
+                                            : void 0
+                                        : void 0,
                                 ),
                             ),
                         );
@@ -109,22 +128,24 @@ import { readPackageJson } from "#/functions/readPackageJson";
             .command("verify")
             .description("verify a RowID")
             .argument("<rowid>", "the RowID to verify")
-            .action(async (rowid: string): Promise<void> => {
+            .action(async (encoded: string): Promise<void> => {
                 try {
-                    console.log(JSON.stringify(verify(rowid)));
+                    console.log(JSON.stringify(verify(encoded)));
                 } catch (e: unknown) {
                     console.error(e);
                 }
             });
 
-        // get random digits
+        // get randomness
         program
             .command("random")
-            .description("generate random digits")
-            .argument("<number>", "the number of random digits")
+            .description("generate randomness")
+            .argument("<number>", "the number of randomness")
             .action(async (number: string): Promise<void> => {
                 try {
-                    console.log(getRandomDigits(Number(number)));
+                    console.log(
+                        getRandomness(isNumber(number) ? Number(number) : 1),
+                    );
                 } catch (e: unknown) {
                     console.error(e);
                 }

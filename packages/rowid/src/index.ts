@@ -5,19 +5,22 @@ import type {
     RowIDWithConfigResult,
 } from "#/functions/rowidWithConfig";
 
-import { charList, randomDigits } from "#/configs/common";
+import {
+    randomnessLength as _randomnessLength,
+    charList,
+} from "#/configs/common";
 import { decode as _decode } from "#/functions/decode";
 import { encode as _encode } from "#/functions/encode";
 import { generate as _generate } from "#/functions/generate";
-import { getRandomDigits as _getRandomDigits } from "#/functions/getRandomDigits";
+import { getRandomness as _getRandomness } from "#/functions/getRandomness";
 import { RowID as _RowID } from "#/functions/rowid";
 import { RowIDWithConfig } from "#/functions/rowidWithConfig";
 import { verify as _verify } from "#/functions/verify";
 
-const RowID = (digits: number = randomDigits): string => {
+const RowID = (randomnessLength: number = _randomnessLength): string => {
     return _RowID({
         charList,
-        digits,
+        randomnessLength,
     });
 };
 
@@ -37,12 +40,12 @@ const decode = (encoded: string): Date => {
 
 const generate = (
     timestamp: number,
-    digits: number = randomDigits,
+    randomnessLength: number = _randomnessLength,
 ): GenerateResult => {
     return _generate({
         charList,
         timestamp,
-        digits,
+        randomnessLength,
     });
 };
 
@@ -53,10 +56,10 @@ const verify = (encoded: string): VerifyResult => {
     });
 };
 
-const getRandomDigits = (count: number): string => {
-    return _getRandomDigits({
+const getRandomness = (randomnessLength: number): string => {
+    return _getRandomness({
         charList,
-        count,
+        randomnessLength,
     });
 };
 
@@ -74,5 +77,5 @@ export {
     decode,
     generate,
     verify,
-    getRandomDigits,
+    getRandomness,
 };
