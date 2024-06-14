@@ -62,7 +62,7 @@ console.log(result instanceof Date); // true
 
 #### `generate`
 
-This function generates a ID based on input.
+This function generates a ID based on the input.
 
 ```typescript
 import { generate } from "rowid";
@@ -84,7 +84,7 @@ verify(id);
 
 #### `getRandomness`
 
-This function generates randomness.
+This function generates randomness. It use different methods to generate randomness based on the environment, such as window.crypto on web, node:crypto on Node, and Math.random if all else fails.
 
 ```typescript
 import { getRandomness } from "rowid";
@@ -97,7 +97,7 @@ console.log(result.length === 6); // true
 
 #### `RowIDWithConfig`
 
-This function allows you to customize how RowID works.
+This function allows you to customize how RowID works, and returns the modified functions based on the parameters.
 
 ```typescript
 import type { RowIDWithConfigResult } from "rowid";

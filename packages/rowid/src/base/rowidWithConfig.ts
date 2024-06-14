@@ -27,6 +27,10 @@ type RowIDWithConfigProps = {
     randomnessLength?: number;
 };
 
+/**
+ * This function allows you to customize how RowID works,
+ * and returns the modified functions based on the parameters.
+ */
 const RowIDWithConfig = (props: RowIDWithConfigProps) => {
     if (props) {
         if (typeof props !== "object") {
@@ -61,21 +65,31 @@ const RowIDWithConfig = (props: RowIDWithConfigProps) => {
         props.randomnessLength ?? __randomnessLength;
 
     return {
+        /**
+         * This function generates a unique ID
+         * that is almost impossible to collide.
+         * Or you can specify the number of randomness,
+         * a larger number will generate a longer ID,
+         * with less chance of collision.
+         */
         RowID: (randomnessLength: number = _randomnessLength): string =>
             RowID({
                 charList,
                 randomnessLength,
             }),
+        /** This function encode the timestamp into a ID without randomness. */
         encode: (timestamp: number): string =>
             encode({
                 charList,
                 timestamp,
             }),
+        /** This function decode the ID into a Date. */
         decode: (encoded: string): Date =>
             decode({
                 charList,
                 encoded,
             }),
+        /** This function generates a ID based on the input. */
         generate: (
             timestamp: number,
             randomnessLength: number = _randomnessLength,
@@ -85,11 +99,18 @@ const RowIDWithConfig = (props: RowIDWithConfigProps) => {
                 timestamp,
                 randomnessLength,
             }),
+        /** This function verifys if the ID is valid and natural. */
         verify: (encoded: string): VerifyResult =>
             verify({
                 charList,
                 encoded,
             }),
+        /**
+         * This function generates randomness.
+         * It use different methods to generate randomness based on the environment,
+         * such as window.crypto on web, node:crypto on Node,
+         * and Math.random if all else fails.
+         */
         getRandomness: (randomnessLength: number): string =>
             getRandomness({
                 charList,
