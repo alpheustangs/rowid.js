@@ -1,3 +1,19 @@
+## 0.3.0 (2024-06-14)
+
+### Breaking Changes
+
+- Rename `-n, --number` option to `-r, --randomness` in `rowid` command
+
+### What's New
+
+- Add schema for the config file
+- More options in the config file
+
+### What's Changed
+
+- Update dependencies
+- Fix the issue that timestamp cannot be used as a parameter in some commands
+
 ## 0.2.0 (2024-06-13)
 
 ### Breaking Changes
