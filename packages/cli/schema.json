@@ -1,0 +1,17 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "RowID CLI Configuration File Schema",
+    "type": "object",
+    "properties": {
+        "charList": {
+            "type": "string",
+            "minLength": 28,
+            "description": "The list of characters that can be used in the RowID, it must be longer or equal to 28"
+        },
+        "randomnessLength": {
+            "type": "number",
+            "minimum": 0,
+            "description": "The default length of randomness in the RowID, it's recommended to be longer or equal to 6"
+        }
+    }
+}

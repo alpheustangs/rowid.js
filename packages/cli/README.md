@@ -26,9 +26,13 @@ rowid -h
 
 ## Customization
 
-You may customize how RowID works after installing RowID-CLI and run it once.
+After installing the CLI and running it once, you may customize its behavior by editing the `.rowid.json` file located in the current user's home directory. For type checking, please reference to the `schema.json` file included in the root directory of the CLI project.
 
-To customize the CLI, you can edit the `.rowid.json` file which located in the home directory of the current user.
+```json
+{
+    "$schema": "/path/to/cli/schema.json"
+}
+```
 
 ## License
 
