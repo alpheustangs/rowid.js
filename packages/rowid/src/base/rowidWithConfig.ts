@@ -30,6 +30,24 @@ type RowIDWithConfigProps = {
 /**
  * This function allows you to customize how RowID works,
  * and returns the modified functions based on the parameters.
+ *
+ * ## Example
+ *
+ * ```ts
+ * import type { RowIDWithConfigResult } from "rowid";
+ * import { RowIDWithConfig } from "rowid";
+ *
+ * const {
+ *     RowID,
+ *     encode,
+ *     decode,
+ *     generate,
+ *     verify,
+ *     getRandomness,
+ * }: RowIDWithConfigResult = RowIDWithConfig({
+ *     // ...
+ * });
+ * ```
  */
 const RowIDWithConfig = (props: RowIDWithConfigProps) => {
     if (props) {
@@ -71,25 +89,84 @@ const RowIDWithConfig = (props: RowIDWithConfigProps) => {
          * Or you can specify the number of randomness,
          * a larger number will generate a longer ID,
          * with less chance of collision.
+         *
+         * ## Example
+         *
+         * ```ts
+         * import type { RowIDWithConfigResult } from "rowid";
+         * import { RowIDWithConfig } from "rowid";
+         *
+         * const { RowID }: RowIDWithConfigResult = RowIDWithConfig({
+         *     // ...
+         * });
+         *
+         * const id: string = RowID();
+         * ```
          */
         RowID: (randomnessLength: number = _randomnessLength): string =>
             RowID({
                 charList,
                 randomnessLength,
             }),
-        /** This function encodes the timestamp into a ID without randomness. */
+        /**
+         * This function encodes the timestamp into a ID without randomness.
+         *
+         * ## Example
+         *
+         * ```ts
+         * import type { RowIDWithConfigResult } from "rowid";
+         * import { RowIDWithConfig } from "rowid";
+         *
+         * const { encode }: RowIDWithConfigResult = RowIDWithConfig({
+         *     // ...
+         * });
+         *
+         * const encoded: string = encode(new Date().getTime());
+         * ```
+         */
         encode: (timestamp: number): string =>
             encode({
                 charList,
                 timestamp,
             }),
-        /** This function decodes the ID into a Date. */
+        /**
+         * This function decodes the ID into a Date.
+         *
+         * ## Example
+         *
+         * ```ts
+         * import type { RowIDWithConfigResult } from "rowid";
+         * import { RowIDWithConfig } from "rowid";
+         *
+         * const { decode }: RowIDWithConfigResult = RowIDWithConfig({
+         *     // ...
+         * });
+         *
+         * const decoded: Date = decode("0123456789");
+         * ```
+         */
         decode: (encoded: string): Date =>
             decode({
                 charList,
                 encoded,
             }),
-        /** This function generates a ID based on the input. */
+        /**
+         * This function generates a ID based on the input.
+         *
+         * ## Example
+         *
+         * ```ts
+         * import type { RowIDWithConfigResult } from "rowid";
+         * import { RowIDWithConfig } from "rowid";
+         *
+         * const { generate }: RowIDWithConfigResult = RowIDWithConfig({
+         *     // ...
+         * });
+         *
+         * const current: number = new Date().getTime();
+         * const result: GenerateResult = generate(current, 32 - 10);
+         * ```
+         */
         generate: (
             timestamp: number,
             randomnessLength: number = _randomnessLength,
@@ -99,7 +176,22 @@ const RowIDWithConfig = (props: RowIDWithConfigProps) => {
                 timestamp,
                 randomnessLength,
             }),
-        /** This function verifies if the ID is valid and natural. */
+        /**
+         * This function verifies if the ID is valid and natural.
+         *
+         * ## Example
+         *
+         * ```ts
+         * import type { RowIDWithConfigResult } from "rowid";
+         * import { RowIDWithConfig } from "rowid";
+         *
+         * const { verify }: RowIDWithConfigResult = RowIDWithConfig({
+         *     // ...
+         * });
+         *
+         * const result: VerifyResult = verify("0123456789");
+         * ```
+         */
         verify: (encoded: string): VerifyResult =>
             verify({
                 charList,
@@ -110,6 +202,19 @@ const RowIDWithConfig = (props: RowIDWithConfigProps) => {
          * It use different methods to generate randomness based on the environment,
          * such as window.crypto on web, node:crypto on Node,
          * and Math.random if all else fails.
+         *
+         * ## Example
+         *
+         * ```ts
+         * import type { RowIDWithConfigResult } from "rowid";
+         * import { RowIDWithConfig } from "rowid";
+         *
+         * const { getRandomness }: RowIDWithConfigResult = RowIDWithConfig({
+         *     // ...
+         * });
+         *
+         * const result: string = getRandomness(6);
+         * ```
          */
         getRandomness: (randomnessLength: number): string =>
             getRandomness({

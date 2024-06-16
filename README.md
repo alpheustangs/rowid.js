@@ -62,7 +62,6 @@ This function decodes the ID into a Date.
 import { RowID, decode } from "rowid";
 
 const id: string = RowID();
-
 const result: Date = decode(id);
 
 console.log(result instanceof Date); // true
