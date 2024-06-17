@@ -1,11 +1,11 @@
-type GetRandomnessProps = {
+type GetRandomnessOptions = {
     charList: string;
     randomnessLength: number;
 };
 
-type UnsafedGetRandomnessProps = GetRandomnessProps;
+type UnsafedGetRandomnessOptions = GetRandomnessOptions;
 
-type randomnessProcessProps = GetRandomnessProps;
+type randomnessProcessOptions = GetRandomnessOptions;
 
 const randomnessValidate = (count: number): void => {
     // check type
@@ -46,31 +46,31 @@ const getRandomByte = (): number => {
     return Math.floor(Math.random() * 256);
 };
 
-const randomnessProcess = (props: randomnessProcessProps): string => {
+const randomnessProcess = (opts: randomnessProcessOptions): string => {
     // declarations
     let randomness: string = "";
 
     // implementation
-    for (let i: number = 0; i < props.randomnessLength; i++) {
-        randomness += props.charList[getRandomByte() % props.charList.length];
+    for (let i: number = 0; i < opts.randomnessLength; i++) {
+        randomness += opts.charList[getRandomByte() % opts.charList.length];
     }
 
     // result
     return randomness;
 };
 
-const unsafedGetRandomness = (props: UnsafedGetRandomnessProps): string => {
+const unsafedGetRandomness = (opts: UnsafedGetRandomnessOptions): string => {
     return randomnessProcess({
-        randomnessLength: props.randomnessLength,
-        charList: props.charList,
+        randomnessLength: opts.randomnessLength,
+        charList: opts.charList,
     });
 };
 
-const getRandomness = (props: GetRandomnessProps): string => {
-    randomnessValidate(props.randomnessLength);
+const getRandomness = (opts: GetRandomnessOptions): string => {
+    randomnessValidate(opts.randomnessLength);
     return randomnessProcess({
-        randomnessLength: props.randomnessLength,
-        charList: props.charList,
+        randomnessLength: opts.randomnessLength,
+        charList: opts.charList,
     });
 };
 

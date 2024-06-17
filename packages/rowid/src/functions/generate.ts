@@ -3,23 +3,23 @@ import type { GenerateResult } from "#/@types/generate";
 import { encode } from "#/functions/encode";
 import { getRandomness } from "#/functions/getRandomness";
 
-type GenerateProps = {
+type GenerateOptions = {
     charList: string;
     timestamp: number;
     randomnessLength: number;
 };
 
 // generate
-const generate = (props: GenerateProps): GenerateResult => {
+const generate = (opts: GenerateOptions): GenerateResult => {
     try {
         // encode
         const encoded: string = encode({
-            charList: props.charList,
-            timestamp: props.timestamp,
+            charList: opts.charList,
+            timestamp: opts.timestamp,
         });
         const randomness: string = getRandomness({
-            charList: props.charList,
-            randomnessLength: props.randomnessLength,
+            charList: opts.charList,
+            randomnessLength: opts.randomnessLength,
         });
 
         // result

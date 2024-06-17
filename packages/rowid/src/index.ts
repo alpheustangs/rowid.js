@@ -1,7 +1,7 @@
 import type { GenerateResult } from "#/@types/generate";
 import type { VerifyResult } from "#/@types/verify";
 import type {
-    RowIDWithConfigProps,
+    RowIDWithConfigOptions,
     RowIDWithConfigResult,
 } from "#/base/rowidWithConfig";
 
@@ -19,7 +19,7 @@ export default RowID;
 export type {
     GenerateResult,
     VerifyResult,
-    RowIDWithConfigProps,
+    RowIDWithConfigOptions,
     RowIDWithConfigResult,
 };
 export {

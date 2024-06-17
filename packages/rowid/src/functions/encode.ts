@@ -1,37 +1,37 @@
 import { timestampLength } from "#/configs/common";
 
-type EncodeProps = {
+type EncodeOptions = {
     charList: string;
     timestamp: number;
 };
 
-type UnsafedEncodeProps = EncodeProps;
+type UnsafedEncodeOptions = EncodeOptions;
 
-type EncodeValidateProps = {
+type EncodeValidateOptions = {
     timestamp: number;
 };
 
-type EncodeProcessProps = EncodeProps;
+type EncodeProcessOptions = EncodeOptions;
 
-const encodeValidate = (props: EncodeValidateProps): void => {
+const encodeValidate = (opts: EncodeValidateOptions): void => {
     // check type
-    if (typeof props.timestamp !== "number") {
+    if (typeof opts.timestamp !== "number") {
         throw new TypeError("Timestamp is not a number");
     }
 
     // check range
-    if (props.timestamp < 0) {
+    if (opts.timestamp < 0) {
         throw new RangeError("Timestamp should be equal or greater than to 0");
     }
 };
 
-const encodeProcess = (props: EncodeProcessProps): string => {
+const encodeProcess = (opts: EncodeProcessOptions): string => {
     // declarations
-    const charList: string = props.charList;
+    const charList: string = opts.charList;
     const charListLength: number = charList.length;
 
     let encoded: string = "";
-    let remaining: number = props.timestamp;
+    let remaining: number = opts.timestamp;
 
     // encode
     for (let i: number = 0; i < timestampLength; i++) {
@@ -43,18 +43,18 @@ const encodeProcess = (props: EncodeProcessProps): string => {
     return encoded;
 };
 
-const unsafedEncode = (props: UnsafedEncodeProps): string => {
+const unsafedEncode = (opts: UnsafedEncodeOptions): string => {
     return encodeProcess({
-        timestamp: props.timestamp,
-        charList: props.charList,
+        timestamp: opts.timestamp,
+        charList: opts.charList,
     });
 };
 
-const encode = (props: EncodeProps): string => {
-    encodeValidate({ timestamp: props.timestamp });
+const encode = (opts: EncodeOptions): string => {
+    encodeValidate({ timestamp: opts.timestamp });
     return encodeProcess({
-        timestamp: props.timestamp,
-        charList: props.charList,
+        timestamp: opts.timestamp,
+        charList: opts.charList,
     });
 };
 

@@ -1,36 +1,36 @@
 import { timestampLength } from "#/configs/common";
 
-type DecodeProps = {
+type DecodeOptions = {
     charList: string;
     encoded: string;
 };
 
-type DecodeValidateProps = DecodeProps;
+type DecodeValidateOptions = DecodeOptions;
 
-type DecodeProcessProps = DecodeProps;
+type DecodeProcessOptions = DecodeOptions;
 
-const decodeValidate = (props: DecodeValidateProps): void => {
+const decodeValidate = (opts: DecodeValidateOptions): void => {
     // check type
-    if (typeof props.encoded !== "string") {
+    if (typeof opts.encoded !== "string") {
         throw new TypeError("Input is not a string");
     }
 
     // check length
-    if (props.encoded.length < timestampLength) {
+    if (opts.encoded.length < timestampLength) {
         throw new TypeError("Input is not long enough to be decoded");
     }
 
     // check regex
-    if (!props.encoded.match(new RegExp(`^[${props.charList}]+$`))) {
+    if (!opts.encoded.match(new RegExp(`^[${opts.charList}]+$`))) {
         throw new TypeError("Input is not a valid RowID");
     }
 };
 
-const decodeProcess = (props: DecodeProcessProps): Date => {
+const decodeProcess = (opts: DecodeProcessOptions): Date => {
     // split and upper case
-    const charList: string = props.charList;
+    const charList: string = opts.charList;
     const charListLength: number = charList.length;
-    const encoded: string = props.encoded
+    const encoded: string = opts.encoded
         .slice(0, timestampLength)
         .toUpperCase();
 
@@ -46,9 +46,9 @@ const decodeProcess = (props: DecodeProcessProps): Date => {
     return new Date(Math.max(timestamp, 0));
 };
 
-const decode = (props: DecodeProps): Date => {
-    decodeValidate({ encoded: props.encoded, charList: props.charList });
-    return decodeProcess({ encoded: props.encoded, charList: props.charList });
+const decode = (opts: DecodeOptions): Date => {
+    decodeValidate({ encoded: opts.encoded, charList: opts.charList });
+    return decodeProcess({ encoded: opts.encoded, charList: opts.charList });
 };
 
 export { decode };
