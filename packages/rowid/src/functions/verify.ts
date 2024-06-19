@@ -18,10 +18,8 @@ const verify = (opts: VerifyOptions): VerifyResult => {
 
         let natural: boolean = true;
 
-        /**
-         * should be less than current time
-         * to be considered as a natural ID
-         */
+        // should be less than current time
+        // to be considered as a natural ID
         if (result.getTime() > Date.now()) {
             natural = false;
         }

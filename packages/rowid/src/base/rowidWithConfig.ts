@@ -12,16 +12,17 @@ import { getRandomness } from "#/functions/getRandomness";
 import { RowID } from "#/functions/rowid";
 import { verify } from "#/functions/verify";
 
+/** Options for the `RowIDWithConfig` function. */
 type RowIDWithConfigOptions = {
     /**
      * The list of characters that can be used in the RowID,
-     * it must be longer or equal to 28
+     * it must be longer or equal to `28`.
      * @default "0123456789ABCDEFGHJKMNPQRSTVWXYZ"
      */
     charList?: string;
     /**
      * The default length of randomness in the RowID,
-     * it's recommended to be longer or equal to 6
+     * it's recommended to be longer or equal to `6`.
      * @default 22
      */
     randomnessLength?: number;
@@ -224,6 +225,7 @@ const RowIDWithConfig = (options: RowIDWithConfigOptions) => {
     };
 };
 
+/** Result of the `RowIDWithConfig` function. */
 type RowIDWithConfigResult = ReturnType<typeof RowIDWithConfig>;
 
 export type { RowIDWithConfigOptions, RowIDWithConfigResult };
