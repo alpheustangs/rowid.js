@@ -5,11 +5,7 @@ type DecodeOptions = {
     encoded: string;
 };
 
-type DecodeValidateOptions = DecodeOptions;
-
-type DecodeProcessOptions = DecodeOptions;
-
-const decodeValidate = (opts: DecodeValidateOptions): void => {
+const decode = (opts: DecodeOptions): Date => {
     // check type
     if (typeof opts.encoded !== "string") {
         throw new TypeError("Input is not a string");
@@ -24,9 +20,7 @@ const decodeValidate = (opts: DecodeValidateOptions): void => {
     if (!opts.encoded.match(new RegExp(`^[${opts.charList}]+$`))) {
         throw new TypeError("Input is not a valid RowID");
     }
-};
 
-const decodeProcess = (opts: DecodeProcessOptions): Date => {
     // split and upper case
     const charList: string = opts.charList;
     const charListLength: number = charList.length;
@@ -44,11 +38,6 @@ const decodeProcess = (opts: DecodeProcessOptions): Date => {
 
     // result
     return new Date(Math.max(timestamp, 0));
-};
-
-const decode = (opts: DecodeOptions): Date => {
-    decodeValidate({ encoded: opts.encoded, charList: opts.charList });
-    return decodeProcess({ encoded: opts.encoded, charList: opts.charList });
 };
 
 export { decode };
