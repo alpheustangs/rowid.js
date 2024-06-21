@@ -1,5 +1,6 @@
-import { unsafedEncode } from "#/functions/encode";
-import { unsafedGetRandomness } from "#/functions/getRandomness";
+import { unsafedEncode } from "#/functions/common/encode";
+import { unsafedGetRandomness } from "#/functions/common/getRandomness";
+import { validateNumber } from "#/functions/validateNumber";
 
 type RowIDOptions = {
     charList: string;
@@ -7,15 +8,10 @@ type RowIDOptions = {
 };
 
 const RowID = (opts: RowIDOptions): string => {
-    // type check
-    if (typeof opts.randomnessLength !== "number") {
-        throw new TypeError("Input is not a number");
-    }
-
-    // range check
-    if (opts.randomnessLength < 0) {
-        throw new RangeError("Input should be equal or greater than to 0");
-    }
+    validateNumber({
+        name: "RandomnessLength",
+        number: opts.randomnessLength,
+    });
 
     // result
     return (

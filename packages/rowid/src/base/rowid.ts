@@ -1,16 +1,13 @@
 import type { GenerateResult } from "#/@types/generate";
 import type { VerifyResult } from "#/@types/verify";
 
-import {
-    randomnessLength as _randomnessLength,
-    charList,
-} from "#/configs/common";
-import { decode as _decode } from "#/functions/decode";
-import { encode as _encode } from "#/functions/encode";
-import { generate as _generate } from "#/functions/generate";
-import { getRandomness as _getRandomness } from "#/functions/getRandomness";
-import { RowID as _RowID } from "#/functions/rowid";
-import { verify as _verify } from "#/functions/verify";
+import { RANDOMNESS_LENGTH, CHAR_LIST as charList } from "#/common";
+import { decode as _decode } from "#/functions/common/decode";
+import { encode as _encode } from "#/functions/common/encode";
+import { generate as _generate } from "#/functions/common/generate";
+import { getRandomness as _getRandomness } from "#/functions/common/getRandomness";
+import { RowID as _RowID } from "#/functions/common/rowid";
+import { verify as _verify } from "#/functions/common/verify";
 
 /**
  * This function generates a 32-character unique ID
@@ -35,7 +32,7 @@ import { verify as _verify } from "#/functions/verify";
  * const id: string = RowID(6);
  * ```
  */
-const RowID = (randomnessLength: number = _randomnessLength): string => {
+const RowID = (randomnessLength: number = RANDOMNESS_LENGTH): string => {
     return _RowID({
         charList,
         randomnessLength,
@@ -94,7 +91,7 @@ const decode = (encoded: string): Date => {
  */
 const generate = (
     timestamp: number,
-    randomnessLength: number = _randomnessLength,
+    randomnessLength: number = RANDOMNESS_LENGTH,
 ): GenerateResult => {
     return _generate({
         charList,

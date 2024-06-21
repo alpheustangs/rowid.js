@@ -1,3 +1,5 @@
+import { validateNumber } from "#/functions/validateNumber";
+
 type GetRandomnessOptions = {
     charList: string;
     randomnessLength: number;
@@ -6,18 +8,6 @@ type GetRandomnessOptions = {
 type UnsafedGetRandomnessOptions = GetRandomnessOptions;
 
 type randomnessProcessOptions = GetRandomnessOptions;
-
-const randomnessValidate = (count: number): void => {
-    // check type
-    if (typeof count !== "number") {
-        throw new TypeError("Input is not a number");
-    }
-
-    // check range
-    if (count < 0) {
-        throw new RangeError("Input should be equal or greater than to 0");
-    }
-};
 
 const getRandomByte = (): number => {
     // use window.crypto when available
@@ -67,7 +57,11 @@ const unsafedGetRandomness = (opts: UnsafedGetRandomnessOptions): string => {
 };
 
 const getRandomness = (opts: GetRandomnessOptions): string => {
-    randomnessValidate(opts.randomnessLength);
+    validateNumber({
+        name: "RandomnessLength",
+        number: opts.randomnessLength,
+    });
+
     return randomnessProcess({
         randomnessLength: opts.randomnessLength,
         charList: opts.charList,

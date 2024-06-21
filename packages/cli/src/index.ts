@@ -6,7 +6,7 @@ import type { PackageJson } from "#/@types/packageJson";
 import { Command } from "commander";
 import { RowIDWithConfig } from "rowid";
 
-import { charList, randomnessLength } from "#/configs/common";
+import { CHAT_LIST, RANDOMNESS_LENGTH } from "#/common";
 import { isNumber } from "#/functions/isNumber";
 import { readConfig } from "#/functions/readConfig";
 import { readPackageJson } from "#/functions/readPackageJson";
@@ -26,11 +26,11 @@ import { readPackageJson } from "#/functions/readPackageJson";
             verify,
             getRandomness,
         }: RowIDWithConfigResult = RowIDWithConfig({
-            charList: config.charList ?? charList,
+            charList: config.charList ?? CHAT_LIST,
             randomnessLength:
                 (config.randomnessLength && isNumber(config.randomnessLength)
                     ? Number(config.randomnessLength)
-                    : randomnessLength) ?? randomnessLength,
+                    : RANDOMNESS_LENGTH) ?? RANDOMNESS_LENGTH,
         });
 
         // RowID

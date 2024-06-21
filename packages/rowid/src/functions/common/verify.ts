@@ -1,6 +1,6 @@
 import type { VerifyResult } from "#/@types/verify";
 
-import { decode } from "#/functions/decode";
+import { decode } from "#/functions/common/decode";
 
 type VerifyOptions = {
     charList: string;

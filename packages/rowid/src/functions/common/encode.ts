@@ -1,4 +1,5 @@
-import { timestampLength } from "#/configs/common";
+import { TIMESTAMP_LENGTH } from "#/common";
+import { validateNumber } from "#/functions/validateNumber";
 
 type EncodeOptions = {
     charList: string;
@@ -7,23 +8,7 @@ type EncodeOptions = {
 
 type UnsafedEncodeOptions = EncodeOptions;
 
-type EncodeValidateOptions = {
-    timestamp: number;
-};
-
 type EncodeProcessOptions = EncodeOptions;
-
-const encodeValidate = (opts: EncodeValidateOptions): void => {
-    // check type
-    if (typeof opts.timestamp !== "number") {
-        throw new TypeError("Timestamp is not a number");
-    }
-
-    // check range
-    if (opts.timestamp < 0) {
-        throw new RangeError("Timestamp should be equal or greater than to 0");
-    }
-};
 
 const encodeProcess = (opts: EncodeProcessOptions): string => {
     // declarations
@@ -34,7 +19,7 @@ const encodeProcess = (opts: EncodeProcessOptions): string => {
     let remaining: number = opts.timestamp;
 
     // encode
-    for (let i: number = 0; i < timestampLength; i++) {
+    for (let i: number = 0; i < TIMESTAMP_LENGTH; i++) {
         encoded = charList[remaining % charListLength] + encoded;
         remaining = Math.floor(remaining / charListLength);
     }
@@ -51,7 +36,11 @@ const unsafedEncode = (opts: UnsafedEncodeOptions): string => {
 };
 
 const encode = (opts: EncodeOptions): string => {
-    encodeValidate({ timestamp: opts.timestamp });
+    validateNumber({
+        name: "Timestamp",
+        number: opts.timestamp,
+    });
+
     return encodeProcess({
         timestamp: opts.timestamp,
         charList: opts.charList,

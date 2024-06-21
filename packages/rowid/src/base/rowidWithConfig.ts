@@ -1,16 +1,14 @@
 import type { GenerateResult } from "#/@types/generate";
 import type { VerifyResult } from "#/@types/verify";
 
-import {
-    randomnessLength as __randomnessLength,
-    charList as _charList,
-} from "#/configs/common";
-import { decode } from "#/functions/decode";
-import { encode } from "#/functions/encode";
-import { generate } from "#/functions/generate";
-import { getRandomness } from "#/functions/getRandomness";
-import { RowID } from "#/functions/rowid";
-import { verify } from "#/functions/verify";
+import { CHAR_LIST, RANDOMNESS_LENGTH } from "#/common";
+import { decode } from "#/functions/common/decode";
+import { encode } from "#/functions/common/encode";
+import { generate } from "#/functions/common/generate";
+import { getRandomness } from "#/functions/common/getRandomness";
+import { RowID } from "#/functions/common/rowid";
+import { verify } from "#/functions/common/verify";
+import { validateNumber } from "#/functions/validateNumber";
 
 /** Options for the `RowIDWithConfig` function. */
 type RowIDWithConfigOptions = {
@@ -53,35 +51,32 @@ type RowIDWithConfigOptions = {
 const RowIDWithConfig = (options: RowIDWithConfigOptions) => {
     if (options) {
         if (typeof options !== "object") {
-            throw new TypeError("Input is not an object");
+            throw new TypeError("Options is not an object");
         }
 
         if (options.charList) {
             if (typeof options.charList !== "string") {
-                throw new TypeError("charList is not a string");
+                throw new TypeError("CharList is not a string");
             }
 
             if (options.charList.length < 28) {
-                throw new RangeError("charList must be longer or equal to 28");
+                throw new RangeError(
+                    `CharList's length must be greater than or equal to 28`,
+                );
             }
         }
 
         if (options.randomnessLength) {
-            if (typeof options.randomnessLength !== "number") {
-                throw new TypeError("randomnessLength is not a number");
-            }
-
-            if (options.randomnessLength < 0) {
-                throw new RangeError(
-                    "randomnessLength should be equal or greater than 0",
-                );
-            }
+            validateNumber({
+                name: "RandomnessLength",
+                number: options.randomnessLength,
+            });
         }
     }
 
-    const charList: string = options.charList ?? _charList;
+    const charList: string = options.charList ?? CHAR_LIST;
     const _randomnessLength: number =
-        options.randomnessLength ?? __randomnessLength;
+        options.randomnessLength ?? RANDOMNESS_LENGTH;
 
     return {
         /**

@@ -1,7 +1,7 @@
 import type { GenerateResult } from "#/@types/generate";
 
-import { encode } from "#/functions/encode";
-import { getRandomness } from "#/functions/getRandomness";
+import { encode } from "#/functions/common/encode";
+import { getRandomness } from "#/functions/common/getRandomness";
 
 type GenerateOptions = {
     charList: string;
