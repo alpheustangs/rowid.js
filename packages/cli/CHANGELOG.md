@@ -1,3 +1,11 @@
+## 0.4.0 (2024-06-22)
+
+### What's Changed
+
+- Update `package.json`
+- Update dependencies
+- Rename some arguments
+
 ## 0.3.0 (2024-06-14)
 
 ### Breaking Changes

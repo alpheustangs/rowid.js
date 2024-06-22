@@ -1,3 +1,18 @@
+## 0.5.0 (2024-06-22)
+
+### Breaking Changes
+
+- Rename `RowIDWithConfigProps` to `RowIDWithConfigOptions`
+
+### What's New
+
+- Add inline documentation for types and functions
+
+### What's Changed
+
+- Update `package.json`
+- Update dependencies
+
 ## 0.4.0 (2024-06-14)
 
 ### Breaking Changes
