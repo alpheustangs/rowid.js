@@ -18,7 +18,7 @@ import { verify as _verify } from "#/functions/common/verify";
  *
  * ## Example
  *
- * ```ts
+ * ```typescript
  * import RowID from "rowid";
  *
  * const id: string = RowID();
@@ -26,7 +26,7 @@ import { verify as _verify } from "#/functions/common/verify";
  *
  * With specified randomness:
  *
- * ```ts
+ * ```typescript
  * import RowID from "rowid";
  *
  * const id: string = RowID(6);
@@ -44,7 +44,7 @@ const RowID = (randomnessLength: number = RANDOMNESS_LENGTH): string => {
  *
  * ## Example
  *
- * ```ts
+ * ```typescript
  * import { encode } from "rowid";
  *
  * const result: string = encode(new Date().getTime());
@@ -62,7 +62,7 @@ const encode = (timestamp: number): string => {
  *
  * ## Example
  *
- * ```ts
+ * ```typescript
  * import { RowID, decode } from "rowid";
  *
  * const id: string = RowID();
@@ -81,7 +81,7 @@ const decode = (encoded: string): Date => {
  *
  * ## Example
  *
- * ```ts
+ * ```typescript
  * import type { GenerateResult } from "rowid";
  * import { generate } from "rowid";
  *
@@ -105,7 +105,7 @@ const generate = (
  *
  * ## Example
  *
- * ```ts
+ * ```typescript
  * import type { VerifyResult } from "rowid";
  * import { RowID, verify } from "rowid";
  *
@@ -121,14 +121,11 @@ const verify = (encoded: string): VerifyResult => {
 };
 
 /**
- * This function generates randomness.
- * It use different methods to generate randomness based on the environment,
- * such as window.crypto on web, node:crypto on Node,
- * and Math.random if all else fails.
+ * This function generates randomness with different methods based on the environment.
  *
  * ## Example
  *
- * ```ts
+ * ```typescript
  * import { getRandomness } from "rowid";
  *
  * const result: string = getRandomness(6);

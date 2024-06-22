@@ -1,19 +1,28 @@
 # RowID
 
-A time based unique ID solution for TypeScript / JavaScript and Node.
+A time based unique ID solution.
 
-## Install
+## Quick Start
 
-For NPM:
+You may create a RowID with the following code:
 
-```bash
-npm i rowid
+```typescript
+import RowID from "rowid";
+
+const id: string = RowID();
 ```
 
-For PNPM:
+Or customize the RowID with the following code:
 
-```bash
-pnpm i rowid
+```typescript
+import { RowIDWithConfig } from "rowid";
+
+const { RowID }: RowIDWithConfigResult = RowIDWithConfig({
+    charList: "0123456789ABCDEFGHJKMNPQRSTVWXYZ",
+    randomnessLength: 22,
+});
+
+const id: string = RowID();
 ```
 
 ## License

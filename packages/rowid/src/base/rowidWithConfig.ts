@@ -32,7 +32,7 @@ type RowIDWithConfigOptions = {
  *
  * ## Example
  *
- * ```ts
+ * ```typescript
  * import type { RowIDWithConfigResult } from "rowid";
  * import { RowIDWithConfig } from "rowid";
  *
@@ -88,7 +88,7 @@ const RowIDWithConfig = (options: RowIDWithConfigOptions) => {
          *
          * ## Example
          *
-         * ```ts
+         * ```typescript
          * import type { RowIDWithConfigResult } from "rowid";
          * import { RowIDWithConfig } from "rowid";
          *
@@ -109,7 +109,7 @@ const RowIDWithConfig = (options: RowIDWithConfigOptions) => {
          *
          * ## Example
          *
-         * ```ts
+         * ```typescript
          * import type { RowIDWithConfigResult } from "rowid";
          * import { RowIDWithConfig } from "rowid";
          *
@@ -130,7 +130,7 @@ const RowIDWithConfig = (options: RowIDWithConfigOptions) => {
          *
          * ## Example
          *
-         * ```ts
+         * ```typescript
          * import type { RowIDWithConfigResult } from "rowid";
          * import { RowIDWithConfig } from "rowid";
          *
@@ -151,7 +151,7 @@ const RowIDWithConfig = (options: RowIDWithConfigOptions) => {
          *
          * ## Example
          *
-         * ```ts
+         * ```typescript
          * import type { RowIDWithConfigResult } from "rowid";
          * import { RowIDWithConfig } from "rowid";
          *
@@ -177,7 +177,7 @@ const RowIDWithConfig = (options: RowIDWithConfigOptions) => {
          *
          * ## Example
          *
-         * ```ts
+         * ```typescript
          * import type { RowIDWithConfigResult } from "rowid";
          * import { RowIDWithConfig } from "rowid";
          *
@@ -194,14 +194,11 @@ const RowIDWithConfig = (options: RowIDWithConfigOptions) => {
                 encoded,
             }),
         /**
-         * This function generates randomness.
-         * It use different methods to generate randomness based on the environment,
-         * such as window.crypto on web, node:crypto on Node,
-         * and Math.random if all else fails.
+         * This function generates randomness with different methods based on the environment.
          *
          * ## Example
          *
-         * ```ts
+         * ```typescript
          * import type { RowIDWithConfigResult } from "rowid";
          * import { RowIDWithConfig } from "rowid";
          *

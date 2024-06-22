@@ -82,7 +82,7 @@ import { readPackageJson } from "#/functions/readPackageJson";
         program
             .command("decode")
             .description("decode a RowID to date")
-            .argument("<rowid>", "the RowID to decode")
+            .argument("<encoded>", "the encoded to decode")
             .action(async (encoded: string): Promise<void> => {
                 try {
                     console.log(decode(encoded));
@@ -127,7 +127,7 @@ import { readPackageJson } from "#/functions/readPackageJson";
         program
             .command("verify")
             .description("verify a RowID")
-            .argument("<rowid>", "the RowID to verify")
+            .argument("<encoded>", "the encoded to verify")
             .action(async (encoded: string): Promise<void> => {
                 try {
                     console.log(JSON.stringify(verify(encoded)));
