@@ -17,8 +17,8 @@
         "js",
         "JavaScript"
     ],
-    "homepage": "https://github.com/alpheustangs/rowid",
-    "bugs": "https://github.com/alpheustangs/rowid/issues",
+    "homepage": "https://github.com/alpheustangs/rowid.ts",
+    "bugs": "https://github.com/alpheustangs/rowid.ts/issues",
     "license": "MIT",
     "author": "Alpheus Tang",
     "files": ["bin", "dist", "schema.json"],
@@ -27,7 +27,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/alpheustangs/rowid.git",
+        "url": "https://github.com/alpheustangs/rowid.ts.git",
         "directory": "packages/cli"
     },
     "devDependencies": {
