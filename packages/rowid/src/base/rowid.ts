@@ -1,7 +1,7 @@
 import type { GenerateResult } from "#/@types/generate";
 import type { VerifyResult } from "#/@types/verify";
 
-import { RANDOMNESS_LENGTH, CHAR_LIST as charList } from "#/common";
+import { RANDOMNESS_LENGTH, CHAR_LIST as charList } from "#/common/configs";
 import { decode as _decode } from "#/functions/common/decode";
 import { encode as _encode } from "#/functions/common/encode";
 import { generate as _generate } from "#/functions/common/generate";

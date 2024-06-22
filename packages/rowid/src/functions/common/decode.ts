@@ -1,4 +1,4 @@
-import { TIMESTAMP_LENGTH } from "#/common";
+import { TIMESTAMP_LENGTH } from "#/common/configs";
 
 type DecodeOptions = {
     charList: string;
