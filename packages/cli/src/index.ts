@@ -36,7 +36,7 @@ import { readPackageJson } from "#/functions/readPackageJson";
         // RowID
         program
             .name("rowid")
-            .description("RowID, a time based unique ID solution")
+            .description("RowID, a time-based unique ID solution")
             .version(
                 `v${pkj ? pkj.version : "0.0.0"}`,
                 "-v, --version",

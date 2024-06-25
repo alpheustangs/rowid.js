@@ -1,6 +1,6 @@
 # RowID
 
-A time based unique ID solution.
+A time-based unique ID solution.
 
 ## Installation
 
