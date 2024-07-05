@@ -8,6 +8,23 @@ import * as path from "node:path";
 import { CHAT_LIST, RANDOMNESS_LENGTH } from "#/common";
 
 const readConfig = async (): Promise<Config> => {
+    // debug
+    const debug: string | undefined = process.env.ROWID_CLI_DEBUG;
+
+    if (debug && debug === "1") {
+        const _debugPath: string = path.resolve(
+            os.homedir(),
+            ".rowid.debug.json",
+        );
+
+        if (fs.existsSync(_debugPath)) {
+            return await fsp
+                .readFile(_debugPath, "utf-8")
+                .then((data: string): Config => JSON.parse(data));
+        }
+    }
+
+    // normal
     const _path: string = path.resolve(os.homedir(), ".rowid.json");
 
     if (!fs.existsSync(_path)) {

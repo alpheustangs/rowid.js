@@ -1,7 +1,8 @@
 {
     "private": true,
     "scripts": {
-        "gen": "ts-node src/index.ts"
+        "gen": "ts-node src/index.ts",
+        "": ""
     },
     "dependencies": {
         "rowid": "workspace:^"
