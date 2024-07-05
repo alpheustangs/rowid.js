@@ -20,14 +20,14 @@ describe("RowID CLI tests", (): void => {
         expect(stdout.length).toBe(10 + 22);
     });
 
-    it("should generate a RowID with specified number using param -n", async (): Promise<void> => {
+    it("should generate a RowID with specified number using param -r", async (): Promise<void> => {
         const { stdout } = await execa("rowid", ["-r", "6"]);
         expect(typeof stdout).toBe("string");
         expect(stdout.length).toBe(10 + 6);
     });
 
-    it("should generate a RowID with specified number using param --number", async (): Promise<void> => {
-        const { stdout } = await execa("rowid", ["-r", "12"]);
+    it("should generate a RowID with specified number using param --randomness", async (): Promise<void> => {
+        const { stdout } = await execa("rowid", ["--randomness", "12"]);
         expect(typeof stdout).toBe("string");
         expect(stdout.length).toBe(10 + 12);
     });
