@@ -12,6 +12,6 @@
     "devDependencies": {
         "cross-env": "^7.0.3",
         "vite": "^5.3.3",
-        "vitest": "^2.0.1"
+        "vitest": "^2.0.2"
     }
 }
