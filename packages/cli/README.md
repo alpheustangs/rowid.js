@@ -1,6 +1,6 @@
 # RowID CLI
 
-CLI for RowID
+CLI for a time-based unique ID solution.
 
 ## Quick Start
 
