@@ -1,6 +1,6 @@
 {
     "name": "rowid-cli",
-    "version": "0.4.0",
+    "version": "0.4.1",
     "description": "CLI for a time-based unique ID solution",
     "keywords": [
         "RowID",

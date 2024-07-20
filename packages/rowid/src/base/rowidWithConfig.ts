@@ -152,7 +152,7 @@ const RowIDWithConfig = (options: RowIDWithConfigOptions) => {
          * ## Example
          *
          * ```typescript
-         * import type { RowIDWithConfigResult } from "rowid";
+         * import type { RowIDWithConfigResult, GenerateResult } from "rowid";
          * import { RowIDWithConfig } from "rowid";
          *
          * const { generate }: RowIDWithConfigResult = RowIDWithConfig({
@@ -178,7 +178,7 @@ const RowIDWithConfig = (options: RowIDWithConfigOptions) => {
          * ## Example
          *
          * ```typescript
-         * import type { RowIDWithConfigResult } from "rowid";
+         * import type { RowIDWithConfigResult, VerifyResult } from "rowid";
          * import { RowIDWithConfig } from "rowid";
          *
          * const { verify }: RowIDWithConfigResult = RowIDWithConfig({

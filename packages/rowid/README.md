@@ -15,6 +15,7 @@ const id: string = RowID();
 Or customize the RowID with the following code:
 
 ```typescript
+import type { RowIDWithConfigResult } from "rowid";
 import { RowIDWithConfig } from "rowid";
 
 const { RowID }: RowIDWithConfigResult = RowIDWithConfig({
