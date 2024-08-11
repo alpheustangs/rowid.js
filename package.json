@@ -3,7 +3,10 @@
     "scripts": {
         "format": "biome check --write .",
         "build": "npm-run-all --sequential build:id build:cli",
-        "build:id": "cd ./packages/rowid && tsc && tsc-alias",
+        "build:id": "npm-run-all --parallel build:id:esm build:id:cjs build:id:types",
+        "build:id:esm": "cd ./packages/rowid && tsc -p tsconfig.esm.json && tsc-alias -p tsconfig.esm.json",
+        "build:id:cjs": "cd ./packages/rowid && tsc -p tsconfig.cjs.json && tsc-alias -p tsconfig.cjs.json",
+        "build:id:types": "cd ./packages/rowid && tsc -p tsconfig.types.json && tsc-alias -p tsconfig.types.json",
         "build:cli": "tsup",
         "test": "npm-run-all --sequential test:id test:cli",
         "test:id": "cd ./tests/rowid && pnpm run test",
@@ -13,7 +16,7 @@
     },
     "devDependencies": {
         "@biomejs/biome": "^1.8.3",
-        "@types/node": "^22.1.0",
+        "@types/node": "^22.2.0",
         "npm-run-all": "^4.1.5",
         "tsc-alias": "^1.8.10",
         "tsup": "^8.2.4",
