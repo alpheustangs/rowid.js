@@ -1,11 +1,26 @@
-import type { VerifyResult } from "#/@types/verify";
-
 import { decode } from "#/functions/common/decode";
 
 type VerifyOptions = {
     charList: string;
     encoded: string;
 };
+
+/** Result of the `verify` function. */
+type VerifyResult =
+    | {
+          /** Successful verification. */
+          success: true;
+          /** Generated date of the ID verified by the `verify` function. */
+          result: Date;
+          /** Whether the ID was generated naturally. */
+          natural: boolean;
+      }
+    | {
+          /** Failed verification. */
+          success: false;
+          /** Error from the `verify` function. */
+          error: Error;
+      };
 
 // verify
 const verify = (opts: VerifyOptions): VerifyResult => {
@@ -38,4 +53,5 @@ const verify = (opts: VerifyOptions): VerifyResult => {
     }
 };
 
+export type { VerifyResult };
 export { verify };

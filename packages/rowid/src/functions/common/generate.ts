@@ -1,5 +1,3 @@
-import type { GenerateResult } from "#/@types/generate";
-
 import { encode } from "#/functions/common/encode";
 import { getRandomness } from "#/functions/common/getRandomness";
 
@@ -8,6 +6,21 @@ type GenerateOptions = {
     timestamp: number;
     randomnessLength: number;
 };
+
+/** Result of the `generate` function. */
+type GenerateResult =
+    | {
+          /** Successful generation. */
+          success: true;
+          /** Generated ID from the `generate` function. */
+          result: string;
+      }
+    | {
+          /** Failed generation. */
+          success: false;
+          /** Error from the `generate` function. */
+          error: Error;
+      };
 
 // generate
 const generate = (opts: GenerateOptions): GenerateResult => {
@@ -35,4 +48,5 @@ const generate = (opts: GenerateOptions): GenerateResult => {
     }
 };
 
+export type { GenerateResult };
 export { generate };

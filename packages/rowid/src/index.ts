@@ -1,9 +1,9 @@
-import type { GenerateResult } from "#/@types/generate";
-import type { VerifyResult } from "#/@types/verify";
 import type {
     RowIDWithConfigOptions,
     RowIDWithConfigResult,
 } from "#/base/rowidWithConfig";
+import type { GenerateResult } from "#/functions/common/generate";
+import type { VerifyResult } from "#/functions/common/verify";
 
 import {
     RowID,
