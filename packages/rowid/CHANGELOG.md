@@ -1,3 +1,13 @@
+## 0.6.0 (2024-08-13)
+
+### What's New
+
+- Add support for ES Module
+
+### What's Changed
+
+- Update dependencies
+
 ## 0.5.1 (2024-07-20)
 
 ### What's Changed

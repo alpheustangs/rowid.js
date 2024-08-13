@@ -1,3 +1,9 @@
+## 0.4.2 (2024-08-13)
+
+### What's Changed
+
+- Update dependencies
+
 ## 0.4.1 (2024-07-20)
 
 ### What's Changed
