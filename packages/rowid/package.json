@@ -1,6 +1,6 @@
 {
     "name": "rowid",
-    "version": "0.6.1",
+    "version": "0.6.2",
     "description": "A time-based unique ID solution",
     "keywords": [
         "RowID",
