@@ -1,3 +1,9 @@
+## 0.6.1 (2024-08-13)
+
+### What's Changed
+
+- Fix for ES Module support
+
 ## 0.6.0 (2024-08-13)
 
 ### What's New
