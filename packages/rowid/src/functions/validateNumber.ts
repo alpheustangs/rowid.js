@@ -4,7 +4,7 @@ type ValidateNumberOptions = {
 };
 
 const validateNumber = (options: ValidateNumberOptions): void => {
-    const maxInt: number = Number.MAX_SAFE_INTEGER;
+    const maxInt: number = Number.MAX_SAFE_INTEGER ?? 9_007_199_254_740_991;
 
     // check type
     if (typeof options.number !== "number") {
