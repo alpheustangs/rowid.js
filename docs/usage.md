@@ -23,8 +23,7 @@ RowID provides the following functions:
 
 #### `RowID`
 
-This function generates a 32-character unique ID 
-that is almost impossible to duplicate.
+This function generates a 32-character unique ID that is almost impossible to duplicate.
 
 ```typescript
 import RowID from "rowid";
@@ -34,9 +33,7 @@ const id: string = RowID();
 console.log(typeof id === "string"); // true
 ```
 
-Or you can specify the number of randomness, 
-a larger number will generate a longer ID, 
-with less chance of collision.
+Or you can specify the number of randomness, a larger number will generate a longer ID, with less chance of collision.
 
 ```typescript
 import RowID from "rowid";
@@ -95,8 +92,7 @@ verify(id);
 
 #### `getRandomness`
 
-This function generates randomness with 
-different methods based on the environment.
+This function generates randomness with different methods based on the environment.
 
 ```typescript
 import { getRandomness } from "rowid";
@@ -109,8 +105,7 @@ console.log(result.length === 6); // true
 
 #### `RowIDWithConfig`
 
-This function allows you to customize how RowID works, 
-and returns the modified functions based on the parameters.
+This function allows you to customize how RowID works, and returns the modified functions based on the parameters.
 
 ```typescript
 import type { RowIDWithConfigResult } from "rowid";

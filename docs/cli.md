@@ -23,12 +23,7 @@ RowID CLI provides the following commands:
 
 #### `rowid`
 
-This command generates a 32-character unique ID 
-that is almost impossible to duplicate. 
-You may pass the `-r` / `--randomness` option to 
-specify the number of randomness, 
-a larger number will generate a longer ID, 
-with less chance of collision.
+This command generates a 32-character unique ID that is almost impossible to duplicate. You may pass the `-r` / `--randomness` option to specify the number of randomness, a larger number will generate a longer ID, with less chance of collision.
 
 #### `rowid encode <date>`
 
@@ -53,11 +48,7 @@ This command generates randomness.
 
 ## Customization
 
-After installing the CLI and running it once, 
-you may customize its behavior by editing 
-the `.rowid.json` file located in the current user's home directory. 
-For type checking, please reference to the `schema.json` file 
-included in the root directory of the CLI project.
+After installing the CLI and running it once, you may customize its behavior by editing the `.rowid.json` file located in the current user's home directory. For type checking, please reference to the `schema.json` file included in the root directory of the CLI project.
 
 ```json
 {
