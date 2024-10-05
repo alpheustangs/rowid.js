@@ -4,16 +4,21 @@ This documentation provides the usage of RowID.
 
 ## Installation
 
-Install RowID as a dependency:
+npm:
 
 ```bash
-# NPM
-npm install rowid
+npm i rowid
+```
 
-# Yarn
+Yarn:
+
+```bash
 yarn add rowid
+```
 
-# PNPM
+pnpm:
+
+```bash
 pnpm add rowid
 ```
 

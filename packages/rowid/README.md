@@ -4,7 +4,7 @@ A time-based unique ID solution.
 
 ## Quick Start
 
-You may create a RowID with the following code:
+Create an ID with the following code:
 
 ```typescript
 import RowID from "rowid";
@@ -12,7 +12,7 @@ import RowID from "rowid";
 const id: string = RowID();
 ```
 
-Or customize the RowID with the following code:
+Or start a customization with the following code:
 
 ```typescript
 import type { RowIDWithConfigResult } from "rowid";
