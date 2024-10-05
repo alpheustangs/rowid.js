@@ -1,3 +1,10 @@
+## 0.6.3 (2024-10-05)
+
+### What's Changed
+
+- Update `package.json`
+- Update dependencies
+
 ## 0.6.2 (2024-08-13)
 
 ### What's Changed

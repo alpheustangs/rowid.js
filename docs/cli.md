@@ -35,8 +35,7 @@ This command decodes the ID into a Date.
 
 #### `rowid generate <date> [number]`
 
-This command generates a ID based on the input. 
-Since the `number` argument is optional, you may omit it. 
+This command generates a ID based on the input. Since the `number` argument is optional, you may omit it. 
 
 #### `rowid verify <encoded>`
 
