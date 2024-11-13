@@ -1,6 +1,6 @@
 ## 0.7.0 (2024-11-13)
 
-### What's Changed
+### Breaking Changes
 
 - Update CommonJS target version from `ES5` to `ES2022`
 - Update ES Module target version from `ES2015` to `ES2022`
