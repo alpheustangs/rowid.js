@@ -6,13 +6,13 @@ CLI for a time-based unique ID solution.
 
 You may run the following command to generate RowID:
 
-```bash
+```sh
 rowid
 ```
 
 Or ask for help with the following command:
 
-```bash
+```sh
 rowid --help
 ```
 

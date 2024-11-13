@@ -4,21 +4,16 @@ This documentation provides the usage of RowID CLI.
 
 ## Installation
 
-npm:
+Install this package as a global dependency:
 
-```bash
+```sh
+# npm
 npm i -g rowid-cli
-```
 
-Yarn:
-
-```bash
+# Yarn
 yarn global add rowid-cli
-```
 
-pnpm:
-
-```bash
+# pnpm
 pnpm add -g rowid-cli
 ```
 

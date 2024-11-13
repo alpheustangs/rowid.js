@@ -6,7 +6,7 @@ A time-based unique ID solution.
 
 Create an ID with the following code:
 
-```typescript
+```ts
 import RowID from "rowid";
 
 const id: string = RowID();
@@ -14,7 +14,7 @@ const id: string = RowID();
 
 Or start a customization with the following code:
 
-```typescript
+```ts
 import type { RowIDWithConfigResult } from "rowid";
 import { RowIDWithConfig } from "rowid";
 
