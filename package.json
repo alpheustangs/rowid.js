@@ -1,7 +1,10 @@
 {
     "private": true,
     "scripts": {
-        "format": "biome check --write .",
+        "fmt": "biome check --write .",
+        "tsc": "npm-run-all --sequential tsc:id tsc:cli",
+        "tsc:id": "cd ./packages/rowid && tsc --noEmit",
+        "tsc:cli": "cd ./packages/cli && tsc --noEmit",
         "build": "npm-run-all --sequential build:id build:cli",
         "build:id": "cd ./packages/rowid && tsup",
         "build:cli": "cd ./packages/cli && tsup",
@@ -12,6 +15,8 @@
         "": ""
     },
     "devDependencies": {
+        "@apst/biome": "~0.1.0",
+        "@apst/tsconfig": "~0.1.0",
         "@biomejs/biome": "^1.9.4",
         "@types/node": "^22.9.0",
         "npm-run-all": "^4.1.5",

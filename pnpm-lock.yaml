@@ -8,6 +8,12 @@ importers:
 
   .:
     devDependencies:
+      '@apst/biome':
+        specifier: ^0.1.0
+        version: 0.1.0(@biomejs/biome@1.9.4)
+      '@apst/tsconfig':
+        specifier: ^0.1.0
+        version: 0.1.0(typescript@5.6.3)
       '@biomejs/biome':
         specifier: ^1.9.4
         version: 1.9.4
@@ -19,7 +25,7 @@ importers:
         version: 4.1.5
       tsup:
         specifier: ^8.3.5
-        version: 8.3.5(@swc/core@1.9.2)(postcss@8.4.47)(typescript@5.6.3)
+        version: 8.3.5(@swc/core@1.9.2(@swc/helpers@0.5.15))(postcss@8.4.47)(typescript@5.6.3)
       typescript:
         specifier: ^5.6.3
         version: 5.6.3
@@ -87,6 +93,22 @@ importers:
         version: 2.1.5(@types/node@22.9.0)
 
 packages:
+
+  '@apst/biome@0.1.0':
+    resolution: {integrity: sha512-iLf7Rnd4EgQEf7D7MQLALw/+hyJWCh6GFUCeS0jd83omIkfb8n2xA0R1fqQ+qaxCRqWiqhBZW3I6oSZpv9WDow==}
+    peerDependencies:
+      '@biomejs/biome': '>=1.9.0'
+    peerDependenciesMeta:
+      '@biomejs/biome':
+        optional: true
+
+  '@apst/tsconfig@0.1.0':
+    resolution: {integrity: sha512-m+tMaRCCgA2x0o7lB47yQfjZ9L3TzQFWuWl/f99cRnlhWhVp3sOdlUNC1DweAcZpswZxWezcIFsfVX7qN2MySQ==}
+    peerDependencies:
+      typescript: '>=5'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
 
   '@biomejs/biome@1.9.4':
     resolution: {integrity: sha512-1rkd7G70+o9KkTn5KLmDYXihGoTaIGO9PIIN2ZB7UJxFrWw04CZHPYiMRjYsaDvVV7hP1dYNRLxSANLaBFGpog==}
@@ -1649,6 +1671,14 @@ packages:
 
 snapshots:
 
+  '@apst/biome@0.1.0(@biomejs/biome@1.9.4)':
+    optionalDependencies:
+      '@biomejs/biome': 1.9.4
+
+  '@apst/tsconfig@0.1.0(typescript@5.6.3)':
+    optionalDependencies:
+      typescript: 5.6.3
+
   '@biomejs/biome@1.9.4':
     optionalDependencies:
       '@biomejs/cli-darwin-arm64': 1.9.4
@@ -2930,7 +2960,7 @@ snapshots:
 
   tslib@2.8.1: {}
 
-  tsup@8.3.5(@swc/core@1.9.2)(postcss@8.4.47)(typescript@5.6.3):
+  tsup@8.3.5(@swc/core@1.9.2(@swc/helpers@0.5.15))(postcss@8.4.47)(typescript@5.6.3):
     dependencies:
       bundle-require: 5.0.0(esbuild@0.24.0)
       cac: 6.7.14

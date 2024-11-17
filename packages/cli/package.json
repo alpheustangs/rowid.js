@@ -19,17 +19,17 @@
     ],
     "homepage": "https://github.com/alpheustangs/rowid.js",
     "bugs": "https://github.com/alpheustangs/rowid.js/issues",
-    "license": "MIT",
-    "author": "Alpheus Tang",
-    "files": ["bin", "dist", "schema.json"],
-    "bin": {
-        "rowid": "./bin/rowid"
-    },
     "repository": {
         "type": "git",
         "url": "https://github.com/alpheustangs/rowid.js.git",
         "directory": "packages/cli"
     },
+    "license": "MIT",
+    "author": "Alpheus Tang",
+    "bin": {
+        "rowid": "./bin/rowid"
+    },
+    "files": ["bin", "dist", "schema.json"],
     "devDependencies": {
         "commander": "^12.1.0",
         "rowid": "workspace:~"

@@ -35,7 +35,8 @@ const decode = (opts: DecodeOptions): Date => {
 
     // decode
     for (let i: number = 0; i < TIMESTAMP_LENGTH; i++) {
-        timestamp = timestamp * charListLength + charList.indexOf(encoded[i]);
+        timestamp =
+            timestamp * charListLength + charList.indexOf(encoded[i] as string);
     }
 
     // result

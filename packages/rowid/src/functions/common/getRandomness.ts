@@ -17,7 +17,9 @@ const getRandomByte = (): number => {
         window.crypto.getRandomValues
     ) {
         try {
-            return window.crypto.getRandomValues(new Uint8Array(1))[0];
+            return window.crypto.getRandomValues(
+                new Uint8Array(1),
+            )[0] as number;
         } catch (e: unknown) {
             // ignore
         }

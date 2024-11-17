@@ -3,6 +3,7 @@
     "compilerOptions": {
         "target": "ES5",
         "module": "CommonJS",
+        "moduleResolution": "node10",
         "baseUrl": ".",
         "paths": {
             "#/*": ["./src/*"]

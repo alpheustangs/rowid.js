@@ -18,12 +18,13 @@
     ],
     "homepage": "https://github.com/alpheustangs/rowid.js",
     "bugs": "https://github.com/alpheustangs/rowid.js/issues",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/alpheustangs/rowid.js.git",
+        "directory": "packages/rowid"
+    },
     "license": "MIT",
     "author": "Alpheus Tang",
-    "files": ["dist"],
-    "main": "./dist/index.js",
-    "module": "./dist/index.mjs",
-    "types": "./dist/index.d.ts",
     "exports": {
         ".": {
             "types": "./dist/index.d.ts",
@@ -31,9 +32,8 @@
             "require": "./dist/index.js"
         }
     },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/alpheustangs/rowid.js.git",
-        "directory": "packages/rowid"
-    }
+    "main": "./dist/index.js",
+    "module": "./dist/index.mjs",
+    "types": "./dist/index.d.ts",
+    "files": ["dist"]
 }
