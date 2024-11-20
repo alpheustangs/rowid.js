@@ -12,11 +12,12 @@ import { verify as _verify } from "#/functions/common/verify";
 /**
  * This function generates a 32-character unique ID
  * that is almost impossible to duplicate.
+ *
  * Or you can specify the number of randomness,
  * a larger number will generate a longer ID,
  * with less chance of collision.
  *
- * ## Example
+ * ### Example
  *
  * ```typescript
  * import RowID from "rowid";
@@ -42,7 +43,7 @@ const RowID = (randomnessLength: number = RANDOMNESS_LENGTH): string => {
 /**
  * This function encodes the timestamp into a ID without randomness.
  *
- * ## Example
+ * ### Example
  *
  * ```typescript
  * import { encode } from "rowid";
@@ -60,7 +61,7 @@ const encode = (timestamp: number): string => {
 /**
  * This function decodes the ID into a Date.
  *
- * ## Example
+ * ### Example
  *
  * ```typescript
  * import { RowID, decode } from "rowid";
@@ -79,7 +80,7 @@ const decode = (encoded: string): Date => {
 /**
  * This function generates a ID based on the input.
  *
- * ## Example
+ * ### Example
  *
  * ```typescript
  * import type { GenerateResult } from "rowid";
@@ -103,7 +104,7 @@ const generate = (
 /**
  * This function verifies if the ID is valid and natural.
  *
- * ## Example
+ * ### Example
  *
  * ```typescript
  * import type { VerifyResult } from "rowid";
@@ -123,7 +124,7 @@ const verify = (encoded: string): VerifyResult => {
 /**
  * This function generates randomness with different methods based on the environment.
  *
- * ## Example
+ * ### Example
  *
  * ```typescript
  * import { getRandomness } from "rowid";

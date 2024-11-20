@@ -30,7 +30,7 @@ type RowIDWithConfigOptions = {
  * This function allows you to customize how RowID works,
  * and returns the modified functions based on the parameters.
  *
- * ## Example
+ * ### Example
  *
  * ```typescript
  * import type { RowIDWithConfigResult } from "rowid";
@@ -82,11 +82,12 @@ const RowIDWithConfig = (options: RowIDWithConfigOptions) => {
         /**
          * This function generates a unique ID
          * that is almost impossible to duplicate.
+         *
          * Or you can specify the number of randomness,
          * a larger number will generate a longer ID,
          * with less chance of collision.
          *
-         * ## Example
+         * #### Example
          *
          * ```typescript
          * import type { RowIDWithConfigResult } from "rowid";
@@ -107,7 +108,7 @@ const RowIDWithConfig = (options: RowIDWithConfigOptions) => {
         /**
          * This function encodes the timestamp into a ID without randomness.
          *
-         * ## Example
+         * #### Example
          *
          * ```typescript
          * import type { RowIDWithConfigResult } from "rowid";
@@ -128,7 +129,7 @@ const RowIDWithConfig = (options: RowIDWithConfigOptions) => {
         /**
          * This function decodes the ID into a Date.
          *
-         * ## Example
+         * #### Example
          *
          * ```typescript
          * import type { RowIDWithConfigResult } from "rowid";
@@ -149,7 +150,7 @@ const RowIDWithConfig = (options: RowIDWithConfigOptions) => {
         /**
          * This function generates a ID based on the input.
          *
-         * ## Example
+         * #### Example
          *
          * ```typescript
          * import type { RowIDWithConfigResult, GenerateResult } from "rowid";
@@ -175,7 +176,7 @@ const RowIDWithConfig = (options: RowIDWithConfigOptions) => {
         /**
          * This function verifies if the ID is valid and natural.
          *
-         * ## Example
+         * #### Example
          *
          * ```typescript
          * import type { RowIDWithConfigResult, VerifyResult } from "rowid";
@@ -196,7 +197,7 @@ const RowIDWithConfig = (options: RowIDWithConfigOptions) => {
         /**
          * This function generates randomness with different methods based on the environment.
          *
-         * ## Example
+         * #### Example
          *
          * ```typescript
          * import type { RowIDWithConfigResult } from "rowid";

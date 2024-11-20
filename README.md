@@ -41,9 +41,11 @@ const { RowID }: RowIDWithConfigResult = RowIDWithConfig({
 const id: string = RowID();
 ```
 
-For more information, please refer to [docs/usage.md](./docs/usage.md).
+## Documentation
 
-For the CLI, please refer to [docs/cli.md](./docs/cli.md).
+For more information, please refer to the [documentation](./docs/rowid/README.md).
+
+For the CLI, please refer to the [CLI documentation](./docs/cli/README.md).
 
 ## License
 
