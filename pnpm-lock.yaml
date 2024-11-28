@@ -25,7 +25,7 @@ importers:
         version: 4.1.5
       tsup:
         specifier: ^8.3.5
-        version: 8.3.5(@swc/core@1.9.3)(postcss@8.4.47)(typescript@5.6.3)(yaml@2.6.1)
+        version: 8.3.5(@swc/core@1.9.3)(postcss@8.4.49)(typescript@5.6.3)(yaml@2.6.1)
       typedoc:
         specifier: ^0.26.11
         version: 0.26.11(typescript@5.6.3)
@@ -60,8 +60,8 @@ importers:
         specifier: ^7.0.3
         version: 7.0.3
       vite:
-        specifier: ^5.4.11
-        version: 5.4.11(@types/node@22.9.4)
+        specifier: ^6.0.1
+        version: 6.0.1(@types/node@22.9.4)(yaml@2.6.1)
       vitest:
         specifier: ^2.1.5
         version: 2.1.5(@types/node@22.9.4)
@@ -92,8 +92,8 @@ importers:
         version: link:../../packages/rowid
     devDependencies:
       vite:
-        specifier: ^5.4.11
-        version: 5.4.11(@types/node@22.9.4)
+        specifier: ^6.0.1
+        version: 6.0.1(@types/node@22.9.4)(yaml@2.6.1)
       vitest:
         specifier: ^2.1.5
         version: 2.1.5(@types/node@22.9.4)
@@ -1394,6 +1394,10 @@ packages:
     resolution: {integrity: sha512-56rxCq7G/XfB4EkXq9Egn5GCqugWvDFjafDOThIdMBsI15iqPqR5r15TfSr1YPYeEI19YeaXMCbY6u88Y76GLQ==}
     engines: {node: ^10 || ^12 || >=14}
 
+  postcss@8.4.49:
+    resolution: {integrity: sha512-OCVPnIObs4N29kxTjzLfUryOkvZEq+pf8jTF0lg8E7uETuWHA+v7j3c/xJmiqpX450191LlmZfUKkXxkTry7nA==}
+    engines: {node: ^10 || ^12 || >=14}
+
   pretty-ms@9.1.0:
     resolution: {integrity: sha512-o1piW0n3tgKIKCwk2vpM/vOV13zjJzvP37Ioze54YlTHE06m4tjEbzg9WsKkvTuyYln2DHjo5pY4qrZGI0otpw==}
     engines: {node: '>=18'}
@@ -1769,6 +1773,46 @@ packages:
       sugarss:
         optional: true
       terser:
+        optional: true
+
+  vite@6.0.1:
+    resolution: {integrity: sha512-Ldn6gorLGr4mCdFnmeAOLweJxZ34HjKnDm4HGo6P66IEqTxQb36VEdFJQENKxWjupNfoIjvRUnswjn1hpYEpjQ==}
+    engines: {node: ^18.0.0 || ^20.0.0 || >=22.0.0}
+    hasBin: true
+    peerDependencies:
+      '@types/node': ^18.0.0 || ^20.0.0 || >=22.0.0
+      jiti: '>=1.21.0'
+      less: '*'
+      lightningcss: ^1.21.0
+      sass: '*'
+      sass-embedded: '*'
+      stylus: '*'
+      sugarss: '*'
+      terser: ^5.16.0
+      tsx: ^4.8.1
+      yaml: ^2.4.2
+    peerDependenciesMeta:
+      '@types/node':
+        optional: true
+      jiti:
+        optional: true
+      less:
+        optional: true
+      lightningcss:
+        optional: true
+      sass:
+        optional: true
+      sass-embedded:
+        optional: true
+      stylus:
+        optional: true
+      sugarss:
+        optional: true
+      terser:
+        optional: true
+      tsx:
+        optional: true
+      yaml:
         optional: true
 
   vitest@2.1.5:
@@ -3005,14 +3049,20 @@ snapshots:
 
   possible-typed-array-names@1.0.0: {}
 
-  postcss-load-config@6.0.1(postcss@8.4.47)(yaml@2.6.1):
+  postcss-load-config@6.0.1(postcss@8.4.49)(yaml@2.6.1):
     dependencies:
       lilconfig: 3.1.2
     optionalDependencies:
-      postcss: 8.4.47
+      postcss: 8.4.49
       yaml: 2.6.1
 
   postcss@8.4.47:
+    dependencies:
+      nanoid: 3.3.7
+      picocolors: 1.1.1
+      source-map-js: 1.2.1
+
+  postcss@8.4.49:
     dependencies:
       nanoid: 3.3.7
       picocolors: 1.1.1
@@ -3302,7 +3352,7 @@ snapshots:
 
   tslib@2.8.1: {}
 
-  tsup@8.3.5(@swc/core@1.9.3)(postcss@8.4.47)(typescript@5.6.3)(yaml@2.6.1):
+  tsup@8.3.5(@swc/core@1.9.3)(postcss@8.4.49)(typescript@5.6.3)(yaml@2.6.1):
     dependencies:
       bundle-require: 5.0.0(esbuild@0.24.0)
       cac: 6.7.14
@@ -3312,7 +3362,7 @@ snapshots:
       esbuild: 0.24.0
       joycon: 3.1.1
       picocolors: 1.1.1
-      postcss-load-config: 6.0.1(postcss@8.4.47)(yaml@2.6.1)
+      postcss-load-config: 6.0.1(postcss@8.4.49)(yaml@2.6.1)
       resolve-from: 5.0.0
       rollup: 4.24.0
       source-map: 0.8.0-beta.0
@@ -3322,7 +3372,7 @@ snapshots:
       tree-kill: 1.2.2
     optionalDependencies:
       '@swc/core': 1.9.3(@swc/helpers@0.5.15)
-      postcss: 8.4.47
+      postcss: 8.4.49
       typescript: 5.6.3
     transitivePeerDependencies:
       - jiti
@@ -3456,6 +3506,16 @@ snapshots:
     optionalDependencies:
       '@types/node': 22.9.4
       fsevents: 2.3.3
+
+  vite@6.0.1(@types/node@22.9.4)(yaml@2.6.1):
+    dependencies:
+      esbuild: 0.24.0
+      postcss: 8.4.49
+      rollup: 4.24.0
+    optionalDependencies:
+      '@types/node': 22.9.4
+      fsevents: 2.3.3
+      yaml: 2.6.1
 
   vitest@2.1.5(@types/node@22.9.4):
     dependencies:
