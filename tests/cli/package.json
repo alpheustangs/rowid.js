@@ -6,7 +6,7 @@
         "": ""
     },
     "dependencies": {
-        "execa": "^9.5.1",
+        "execa": "^9.5.2",
         "rowid-cli": "workspace:^"
     },
     "devDependencies": {
