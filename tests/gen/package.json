@@ -8,7 +8,7 @@
         "rowid": "workspace:^"
     },
     "devDependencies": {
-        "@swc/core": "^1.10.1",
+        "@swc/core": "^1.10.6",
         "@swc/helpers": "^0.5.15",
         "regenerator-runtime": "^0.14.1",
         "ts-node": "^10.9.2"
