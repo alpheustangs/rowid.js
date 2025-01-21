@@ -31,7 +31,7 @@
     },
     "files": ["bin", "dist", "schema.json"],
     "devDependencies": {
-        "commander": "^13.0.0",
+        "commander": "^13.1.0",
         "rowid": "workspace:~"
     }
 }
