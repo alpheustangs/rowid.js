@@ -3,9 +3,9 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-        interval: "daily"
-        time: "00:00"
-        timezone: "Etc/UTC"
+      interval: "daily"
+      time: "00:00"
+      timezone: "Etc/UTC"
     ignore:
       - dependency-name: "@types/node"
         versions: [">=19"]
