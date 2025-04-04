@@ -9,7 +9,7 @@
         "rowid": "workspace:^"
     },
     "devDependencies": {
-        "vite": "^6.2.4",
+        "vite": "^6.2.5",
         "vitest": "^3.1.1"
     }
 }
