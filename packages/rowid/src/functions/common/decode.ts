@@ -23,12 +23,10 @@ const decode = (opts: DecodeOptions): Date => {
         throw new TypeError(`${ECD} is not valid`);
     }
 
-    // split and upper case
+    // split
     const charList: string = opts.charList;
     const charListLength: number = charList.length;
-    const encoded: string = opts.encoded
-        .slice(0, TIMESTAMP_LENGTH)
-        .toUpperCase();
+    const encoded: string = opts.encoded.slice(0, TIMESTAMP_LENGTH);
 
     // timestamp
     let timestamp: number = 0;

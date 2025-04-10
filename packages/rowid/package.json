@@ -1,9 +1,9 @@
 {
     "name": "rowid",
-    "version": "0.7.1",
+    "version": "0.7.2",
     "description": "A time-based unique ID solution",
     "keywords": [
-        "RowID",
+        "rowid",
         "time",
         "unique",
         "id",
@@ -12,9 +12,9 @@
         "frontend",
         "backend",
         "ts",
-        "TypeScript",
+        "typescript",
         "js",
-        "JavaScript"
+        "javascript"
     ],
     "homepage": "https://github.com/alpheustangs/rowid.js",
     "bugs": "https://github.com/alpheustangs/rowid.js/issues",

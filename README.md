@@ -15,6 +15,12 @@ yarn add rowid
 
 # pnpm
 pnpm add rowid
+
+# Deno
+deno add npm:rowid
+
+# Bun
+bun add rowid
 ```
 
 ## Quick Start

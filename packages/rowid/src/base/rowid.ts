@@ -27,7 +27,7 @@ import { verify as _verify } from "#/functions/common/verify";
  *
  * With specified randomness:
  *
- * ```typescript
+ * ```ts
  * import RowID from "rowid";
  *
  * const id: string = RowID(6);
@@ -45,7 +45,7 @@ const RowID = (randomnessLength: number = RANDOMNESS_LENGTH): string => {
  *
  * ### Example
  *
- * ```typescript
+ * ```ts
  * import { encode } from "rowid";
  *
  * const result: string = encode(new Date().getTime());
@@ -63,7 +63,7 @@ const encode = (timestamp: number): string => {
  *
  * ### Example
  *
- * ```typescript
+ * ```ts
  * import { RowID, decode } from "rowid";
  *
  * const id: string = RowID();
@@ -82,8 +82,9 @@ const decode = (encoded: string): Date => {
  *
  * ### Example
  *
- * ```typescript
+ * ```ts
  * import type { GenerateResult } from "rowid";
+ *
  * import { generate } from "rowid";
  *
  * const current: number = new Date().getTime();
@@ -106,8 +107,9 @@ const generate = (
  *
  * ### Example
  *
- * ```typescript
+ * ```ts
  * import type { VerifyResult } from "rowid";
+ *
  * import { RowID, verify } from "rowid";
  *
  * const id: string = RowID();
@@ -126,7 +128,7 @@ const verify = (encoded: string): VerifyResult => {
  *
  * ### Example
  *
- * ```typescript
+ * ```ts
  * import { getRandomness } from "rowid";
  *
  * const result: string = getRandomness(6);

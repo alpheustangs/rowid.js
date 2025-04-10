@@ -32,8 +32,9 @@ type RowIDWithConfigOptions = {
  *
  * ### Example
  *
- * ```typescript
+ * ```ts
  * import type { RowIDWithConfigResult } from "rowid";
+ *
  * import { RowIDWithConfig } from "rowid";
  *
  * const {
@@ -89,8 +90,9 @@ const RowIDWithConfig = (options: RowIDWithConfigOptions) => {
          *
          * #### Example
          *
-         * ```typescript
+         * ```ts
          * import type { RowIDWithConfigResult } from "rowid";
+         *
          * import { RowIDWithConfig } from "rowid";
          *
          * const { RowID }: RowIDWithConfigResult = RowIDWithConfig({
@@ -110,8 +112,9 @@ const RowIDWithConfig = (options: RowIDWithConfigOptions) => {
          *
          * #### Example
          *
-         * ```typescript
+         * ```ts
          * import type { RowIDWithConfigResult } from "rowid";
+         *
          * import { RowIDWithConfig } from "rowid";
          *
          * const { encode }: RowIDWithConfigResult = RowIDWithConfig({
@@ -131,8 +134,9 @@ const RowIDWithConfig = (options: RowIDWithConfigOptions) => {
          *
          * #### Example
          *
-         * ```typescript
+         * ```ts
          * import type { RowIDWithConfigResult } from "rowid";
+         *
          * import { RowIDWithConfig } from "rowid";
          *
          * const { decode }: RowIDWithConfigResult = RowIDWithConfig({
@@ -152,8 +156,9 @@ const RowIDWithConfig = (options: RowIDWithConfigOptions) => {
          *
          * #### Example
          *
-         * ```typescript
+         * ```ts
          * import type { RowIDWithConfigResult, GenerateResult } from "rowid";
+         *
          * import { RowIDWithConfig } from "rowid";
          *
          * const { generate }: RowIDWithConfigResult = RowIDWithConfig({
@@ -178,8 +183,9 @@ const RowIDWithConfig = (options: RowIDWithConfigOptions) => {
          *
          * #### Example
          *
-         * ```typescript
+         * ```ts
          * import type { RowIDWithConfigResult, VerifyResult } from "rowid";
+         *
          * import { RowIDWithConfig } from "rowid";
          *
          * const { verify }: RowIDWithConfigResult = RowIDWithConfig({
@@ -199,8 +205,9 @@ const RowIDWithConfig = (options: RowIDWithConfigOptions) => {
          *
          * #### Example
          *
-         * ```typescript
+         * ```ts
          * import type { RowIDWithConfigResult } from "rowid";
+         *
          * import { RowIDWithConfig } from "rowid";
          *
          * const { getRandomness }: RowIDWithConfigResult = RowIDWithConfig({

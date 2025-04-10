@@ -9,22 +9,21 @@
         "build:id": "cd ./packages/rowid && tsup",
         "build:cli": "cd ./packages/cli && tsup",
         "test": "npm-run-all --sequential test:id test:cli",
-        "test:id": "cd ./tests/rowid && pnpm run test",
-        "test:cli": "cd ./tests/cli && pnpm run test",
-        "gen": "cd ./tests/gen && pnpm run gen",
-        "doc": "cd ./packages/rowid && typedoc",
+        "test:id": "cd ./tests/rowid && vitest run",
+        "test:cli": "cd ./tests/cli && ROWID_CLI_DEBUG=1 vitest run",
         "": ""
     },
     "devDependencies": {
         "@apst/biome": "~0.1.0",
         "@apst/tsconfig": "~0.1.0",
         "@biomejs/biome": "^1.9.4",
+        "@swc/core": "^1.11.18",
         "@types/node": "^18.19.86",
         "npm-run-all2": "^7.0.2",
         "tsup": "^8.4.0",
-        "typedoc": "~0.28.2",
-        "typedoc-plugin-markdown": "^4.6.2",
-        "typescript": "^5.8.3"
+        "typescript": "^5.8.3",
+        "vite": "^6.2.5",
+        "vitest": "^3.1.1"
     },
     "engines": {
         "node": ">=18"

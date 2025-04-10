@@ -1,3 +1,5 @@
+[< Back](../../README.md)
+
 # RowID CLI Usage
 
 This documentation provides the usage of RowID CLI.
@@ -15,6 +17,12 @@ yarn global add rowid-cli
 
 # pnpm
 pnpm add -g rowid-cli
+
+# Deno
+deno install -g npm:rowid-cli
+
+# Bun
+bun add -g rowid-cli
 ```
 
 ## Commands

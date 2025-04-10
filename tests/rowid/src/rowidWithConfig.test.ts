@@ -46,19 +46,49 @@ describe("RowIDWithConfig tests", (): void => {
         expect(error instanceof RangeError).toBe(true);
     });
 
-    const { RowID }: RowIDWithConfigResult = RowIDWithConfig({
+    const rwc: RowIDWithConfigResult = RowIDWithConfig({
         charList: "0123456789ACDEFGHJKMNPQRTVWXY",
     });
 
     it("should be a string", async (): Promise<void> => {
-        const id: string = RowID();
+        const id: string = rwc.RowID();
         expect(typeof id).toBe("string");
         expect(id.length).toBe(32);
     });
 
     it("should be a string with specified length", async (): Promise<void> => {
-        const id: string = RowID(16 - 10);
+        const id: string = rwc.RowID(16 - 10);
         expect(typeof id).toBe("string");
         expect(id.length).toBe(16);
+    });
+
+    it("should encode and decode", async (): Promise<void> => {
+        const now: number = new Date().getTime();
+
+        const id: string = rwc.encode(now);
+
+        expect(typeof id).toBe("string");
+        expect(id.length).toBe(10);
+
+        const decoded: number = rwc.decode(id).getTime();
+
+        expect(decoded).toBe(now);
+    });
+
+    it("should encode and decode", async (): Promise<void> => {
+        const { encode, decode }: RowIDWithConfigResult = RowIDWithConfig({
+            charList: "0123456789acdefghjkmnpqrtvwxy",
+        });
+
+        const now: number = new Date().getTime();
+
+        const id: string = encode(now);
+
+        expect(typeof id).toBe("string");
+        expect(id.length).toBe(10);
+
+        const decoded: number = decode(id).getTime();
+
+        expect(decoded).toBe(now);
     });
 });

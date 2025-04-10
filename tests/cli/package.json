@@ -1,17 +1,13 @@
 {
+    "name": "test-cli",
     "private": true,
     "type": "module",
     "scripts": {
-        "test": "cross-env ROWID_CLI_DEBUG=1 vitest run",
+        "test": "ROWID_CLI_DEBUG=1 vitest run",
         "": ""
     },
     "dependencies": {
         "execa": "^9.5.2",
         "rowid-cli": "workspace:^"
-    },
-    "devDependencies": {
-        "cross-env": "^7.0.3",
-        "vite": "^6.2.5",
-        "vitest": "^3.1.1"
     }
 }

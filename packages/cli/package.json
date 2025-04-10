@@ -1,10 +1,10 @@
 {
     "name": "rowid-cli",
-    "version": "0.4.3",
+    "version": "0.4.4",
     "description": "CLI for a time-based unique ID solution",
     "keywords": [
-        "RowID",
-        "CLI",
+        "rowid",
+        "cli",
         "time",
         "unique",
         "id",
@@ -13,9 +13,9 @@
         "frontend",
         "backend",
         "ts",
-        "TypeScript",
+        "typescript",
         "js",
-        "JavaScript"
+        "javascript"
     ],
     "homepage": "https://github.com/alpheustangs/rowid.js",
     "bugs": "https://github.com/alpheustangs/rowid.js/issues",

@@ -1,3 +1,13 @@
+## 0.7.2 (2025-04-10)
+
+### What's New
+
+- Add source map
+
+### What's Changed
+
+- Avoid `decode` function to uppercase the input and lead to different result
+
 ## 0.7.1 (2024-12-06)
 
 ### What's Changed
