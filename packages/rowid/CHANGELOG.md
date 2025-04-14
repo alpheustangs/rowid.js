@@ -2,7 +2,7 @@
 
 ### What's New
 
-- Add source map
+- Add sourcemap support
 
 ### What's Changed
 
