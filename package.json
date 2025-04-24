@@ -17,7 +17,7 @@
         "@apst/biome": "~0.1.0",
         "@apst/tsconfig": "~0.1.0",
         "@biomejs/biome": "^1.9.4",
-        "@swc/core": "^1.11.21",
+        "@swc/core": "^1.11.22",
         "@types/node": "^18.19.86",
         "npm-run-all2": "^7.0.2",
         "tsup": "^8.4.0",
