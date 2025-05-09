@@ -19,7 +19,7 @@
         "@biomejs/biome": "^1.9.4",
         "@swc/core": "^1.11.24",
         "@types/node": "^18.19.100",
-        "npm-run-all2": "^7.0.2",
+        "npm-run-all2": "^8.0.1",
         "tsup": "^8.4.0",
         "typescript": "^5.8.3",
         "vite": "^6.3.5",
