@@ -2,7 +2,7 @@
     "private": true,
     "scripts": {
         "fmt": "biome check --write .",
-        "tsc": "npm-run-all --sequential tsc:id tsc:cli",
+        "tsc": "npm-run-all --parallel tsc:id tsc:cli",
         "tsc:id": "cd ./packages/rowid && tsc --noEmit",
         "tsc:cli": "cd ./packages/cli && tsc --noEmit",
         "build": "npm-run-all --sequential build:id build:cli",
